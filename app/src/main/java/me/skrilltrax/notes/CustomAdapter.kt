@@ -12,16 +12,17 @@ import androidx.recyclerview.widget.RecyclerView
 
 class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
 
-    private var list: ArrayList<NoteData>? = null
-    init {
 
-        this.list = list
+    init {
+        CustomAdapter.list = list
         Log.e(TAG,list.toString())
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        list = Utils.getNotes(parent.context)
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.recycler_layout,parent,false)
-        return MyViewHolder(view, list)
+        return MyViewHolder(view)
     }
 
     override fun getItemCount(): Int {
@@ -35,18 +36,17 @@ class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAda
 
     }
 
-    class MyViewHolder(itemView: View, list: ArrayList<NoteData>?) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var titleTextView: TextView = itemView.findViewById(R.id.note_title)
+
         var detailTextView: TextView = itemView.findViewById(R.id.note_detail)
-        private var list: ArrayList<NoteData>?
+
         init {
             itemView.setOnClickListener(this)
-            this.list = list
         }
 
         override fun onClick(v: View?) {
-            Log.d(TAG,"In MyViewHolder")
+
             val itemPosition: Int = adapterPosition
             val bundle = Bundle()
             bundle.putString("title", list?.get(itemPosition)?.titleText)
@@ -57,6 +57,7 @@ class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAda
             intent.putExtras(bundle)
             v?.context?.startActivity(intent)
         }
+
 
          companion object {
              private val TAG: String = MyViewHolder::class.java.simpleName
@@ -71,7 +72,9 @@ class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAda
     }
 
     companion object {
+        var list: ArrayList<NoteData>? = null
         private val TAG: String = CustomAdapter::class.java.simpleName
     }
 
 }
+

@@ -50,6 +50,7 @@ class NoteActivity : AppCompatActivity() {
             Log.e("NoteActivity",list.toString())
             Utils.saveNotes(this,list)
             RecyclerViewStuff.adapter.updateDataSet(this)
+
             finish()
         }
     }
