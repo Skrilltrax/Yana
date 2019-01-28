@@ -18,7 +18,7 @@ class NoteActivity : AppCompatActivity() {
         val editTitle: EditText = findViewById(R.id.edit_title)
         val editDetail: EditText = findViewById(R.id.edit_detail)
         val saveButton: MaterialButton = findViewById(R.id.fab)
-
+        var position: Int = -1
         val bundle = intent.extras
 
         if (bundle != null) {
@@ -26,6 +26,7 @@ class NoteActivity : AppCompatActivity() {
             val detailText: String? = bundle.getString("detail")
             editTitle.setText(titleText)
             editDetail.setText(detailText)
+            position = bundle.getInt("position")
         }
         var list: ArrayList<NoteData>?
 
@@ -40,7 +41,12 @@ class NoteActivity : AppCompatActivity() {
             if (list.isNullOrEmpty()) {
                 list = ArrayList()
             }
-            list!!.add(note)
+            if (position != -1) {
+                list?.get(position)?.titleText = note.titleText
+                list?.get(position)?.detailText = note.detailText
+            } else {
+                list!!.add(note)
+            }
             Log.e("NoteActivity",list.toString())
             Utils.saveNotes(this,list)
             RecyclerViewStuff.adapter.updateDataSet(this)

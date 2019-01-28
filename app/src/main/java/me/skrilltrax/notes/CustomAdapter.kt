@@ -51,6 +51,7 @@ class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAda
             val bundle = Bundle()
             bundle.putString("title", list?.get(itemPosition)?.titleText)
             bundle.putString("detail", list?.get(itemPosition)?.detailText)
+            bundle.putInt("position",itemPosition)
 
             val intent = Intent(v?.context,NoteActivity::class.java)
             intent.putExtras(bundle)
