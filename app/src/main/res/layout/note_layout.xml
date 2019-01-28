@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+	<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+		<EditText
+				android:id="@+id/edit_title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:hint="@string/title"
+				android:textSize="30sp"
+				android:paddingStart="30dp"
+				android:paddingTop="60dp"
+				android:paddingBottom="50dp"
+				android:textColorHint="#70ff0800"
+				android:textColor="@color/colorCandyRed"
+				android:background="@android:color/transparent"
+				android:textStyle="bold"
+				android:elevation="1dp"
+				android:inputType="textCapCharacters"/>
+		<!--	android:textAllCaps="true"
+				Don't use this because it gives index out of bounds exception
+				as textAllCaps in not a property of editText. It's property of
+				TextView -->
+
+		<EditText
+				android:id="@+id/edit_detail"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_below="@id/edit_title"
+				android:layout_marginBottom="80dp"
+				android:hint="@string/write_your_own_story"
+				android:paddingStart="30dp"
+				android:paddingTop="30dp"
+				android:textColorHint="#7000574B"
+				android:textColor="@color/colorPrimaryDark"
+				android:gravity="top"
+				android:background="@android:color/transparent"/>
+
+	</RelativeLayout>
+
+	<com.google.android.material.button.MaterialButton
+			android:id="@+id/fab"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			style="@style/Widget.FABlikeButton"
+			app:icon="@drawable/ic_check_white_24dp"
+			android:text="@string/save"
+			android:layout_gravity="bottom|end"
+			app:cornerRadius="32dp"
+			android:layout_marginBottom="16dp"
+			android:layout_marginEnd="16dp"
+	/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
