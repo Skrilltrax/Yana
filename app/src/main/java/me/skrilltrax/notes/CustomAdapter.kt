@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 
 class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
@@ -36,7 +37,7 @@ class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAda
 
     }
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, View.OnLongClickListener {
         var titleTextView: TextView = itemView.findViewById(R.id.note_title)
 
         var detailTextView: TextView = itemView.findViewById(R.id.note_detail)
@@ -56,6 +57,14 @@ class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAda
             val intent = Intent(v?.context,NoteActivity::class.java)
             intent.putExtras(bundle)
             v?.context?.startActivity(intent)
+        }
+
+        override fun onLongClick(v: View?): Boolean {
+            Log.e("LongClick","WOOORRRKKKK")
+            OptionsListDialogFragment.newInstance(30)
+                    .show((v?.context as AppCompatActivity)
+                    .supportFragmentManager, "dialog")
+            return true
         }
 
 

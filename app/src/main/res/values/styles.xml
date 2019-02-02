@@ -1,19 +1,30 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="LightTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorWhite</item>
+        <item name="colorPrimaryDark">@color/colorWhite</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorHint">@color/colorTextHintLight</item>
+        <item name="android:background">@color/colorBackgroundLight</item>
+        <item name="android:textColor">@color/colorTextLight</item>
+        <item name="windowActionBar">true</item>
     </style>
 
-    <style name="DarkTheme" parent="ThemeOverlay.MaterialComponents.Dark">
+    <style name="DarkTheme" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorBackgroundDark</item>
+        <item name="colorPrimary">@color/colorBackgroundDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="editTextColor">@color/colorWhite</item>
+        <item name="android:textColorHint">@color/colorTextHintDark</item>
+        <item name="android:background">@color/colorBackgroundDark</item>
+        <item name="android:textColor">@color/colorTextDark</item>
+        <item name="android:navigationBarColor">@color/colorBackgroundDark</item>
+        <item name="android:navigationBarDividerColor" tools:targetApi="o_mr1">@color/colorBackgroundDark</item>
     </style>
+
 
     <style name="Widget.FABlikeButton" parent="@style/Widget.MaterialComponents.Button">
         <item name="android:letterSpacing">0.055</item>
@@ -25,7 +36,8 @@
         <item name="android:minHeight">52dp</item>
         <item name="android:textSize">15sp</item>
         <item name="cornerRadius">32dp</item>
-		<item name="backgroundTint">@color/colorCandyRed</item>
+        <item name="backgroundTint">@color/colorCandyRed</item>
     </style>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light"/>
 
 </resources>

@@ -1,25 +1,38 @@
 package me.skrilltrax.notes
 
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.WindowManager
 import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.widget.addTextChangedListener
 import com.google.android.material.button.MaterialButton
 
-class NoteActivity : AppCompatActivity() {
+class NoteActivity : AppCompatActivity(), TextWatcher {
+
+    lateinit var saveButton: MaterialButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(Utils.getTheme(this))
         setContentView(R.layout.note_layout)
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
 
 
         val editTitle: EditText = findViewById(R.id.edit_title)
         val editDetail: EditText = findViewById(R.id.edit_detail)
-        val saveButton: MaterialButton = findViewById(R.id.fab)
+        saveButton = findViewById(R.id.fab)
+        saveButton.isEnabled = false
         var position: Int = -1
         val bundle = intent.extras
+
+        editTitle.setHintTextColor(Color.parseColor(Utils.getTransparentColor(this)))
 
         if (bundle != null) {
             val titleText: String? = bundle.getString("title")
@@ -29,6 +42,9 @@ class NoteActivity : AppCompatActivity() {
             position = bundle.getInt("position")
         }
         var list: ArrayList<NoteData>?
+
+
+        editTitle.addTextChangedListener(this)
 
         saveButton.setOnClickListener {
 
@@ -45,7 +61,7 @@ class NoteActivity : AppCompatActivity() {
                 list?.get(position)?.titleText = note.titleText
                 list?.get(position)?.detailText = note.detailText
             } else {
-                list!!.add(note)
+                list?.add(note)
             }
             Log.e("NoteActivity",list.toString())
             Utils.saveNotes(this,list)
@@ -53,5 +69,18 @@ class NoteActivity : AppCompatActivity() {
 
             finish()
         }
+    }
+
+    override fun afterTextChanged(s: Editable?) {
+        saveButton.isEnabled = !s.isNullOrBlank()
+    }
+
+    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+        saveButton.isEnabled = !s.isNullOrBlank()
+    }
+
+
+    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+        saveButton.isEnabled = !s.isNullOrBlank()
     }
 }

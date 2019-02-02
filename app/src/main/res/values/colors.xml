@@ -2,6 +2,24 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
     <color name="colorCandyRed">#ff0800</color>
+
+    <color name="colorAccent">#ff0800</color>
+    <color name="colorBlack">#000</color>
+    <color name="colorWhite">#fff</color>
+
+
+    <!-- Light Theme colors -->
+
+    <color name="colorBackgroundLight">#FFFFFF</color>
+    <color name="colorTextLight">@color/colorBlack</color>
+    <color name="colorTextHintLight">#7000574B</color>
+
+
+    <!-- Light Theme colors -->
+
+    <color name="colorTextDark">@color/colorWhite</color>
+    <color name="colorTextHintDark">#cdcdcd</color>
+    <color name="colorBackgroundDark">#212121</color>
+
 </resources>

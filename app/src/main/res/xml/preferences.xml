@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:singleLineTitle="true" tools:targetApi="o">
+
+
+    <EditTextPreference
+        android:key="user_name"
+        android:title="Name"
+        android:enabled="true"
+        android:summary="@string/user"
+        android:defaultValue="@string/user"
+        app:iconSpaceReserved="false"
+    />
+
+    <SwitchPreference
+        android:id="@+id/theme_preference"
+        android:key="theme_switch"
+        android:title="Dark Mode"
+        android:summary="Enables dark mode"
+        app:iconSpaceReserved="false"
+    />
+
+    <EditTextPreference
+        android:key="accent"
+        android:title="Select Accent Colour"
+        android:summary="Changes the app theme colours"
+        app:iconSpaceReserved="false"
+    />
+
+</PreferenceScreen>

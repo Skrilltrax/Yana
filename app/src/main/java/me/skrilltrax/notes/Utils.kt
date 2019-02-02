@@ -2,17 +2,18 @@ package me.skrilltrax.notes
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.os.Build
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-
-
-
 
 
 class Utils {
     companion object {
         private const val PREFS_FILE_NAME: String = "MyPrefs"
         private const val PREF_NOTE: String = "PrefNote"
+        private const val THEME: String = "Theme"
+        private const val FIRST_RUN: String = "First Run"
+        private const val USER_NAME: String = "user_name"
 
         fun saveNotes(context: Context, list: ArrayList<NoteData>?) {
 
@@ -34,6 +35,38 @@ class Utils {
             }.type
             list = gson.fromJson(json, type)
             return list
+        }
+
+        fun getTransparentColor(context: Context) : String {
+            var color:String = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                Integer.toHexString(context.getColor(R.color.colorAccent))
+            } else {
+                //noinspection deprecation
+                Integer.toHexString(context.resources.getColor(R.color.colorAccent))
+            }
+
+            color = "#" + color.replaceRange(0,2,"70")
+            return color
+        }
+
+        fun getTheme(context: Context?) : Int {
+            val sharedPreferences = context?.getSharedPreferences(PREFS_FILE_NAME,Context.MODE_PRIVATE)
+            return sharedPreferences?.getInt(THEME,R.style.LightTheme) ?: R.style.LightTheme
+        }
+
+        fun changeTheme(context: Context?, theme: Int) {
+            val sharedPreferences = context?.getSharedPreferences(PREFS_FILE_NAME,Context.MODE_PRIVATE)
+            sharedPreferences?.edit()?.putInt(THEME, theme)?.apply()
+        }
+
+        fun isFirstRun(context: Context): Boolean {
+            val sharedPreferences = context.getSharedPreferences(PREFS_FILE_NAME, Context.MODE_PRIVATE)
+            return sharedPreferences.getBoolean(FIRST_RUN,true)
+        }
+
+        fun getUserName(context: Context): String? {
+            val sharedPreferences = context.getSharedPreferences(PREFS_FILE_NAME, Context.MODE_PRIVATE)
+            return sharedPreferences.getString(USER_NAME,"User")
         }
 
     }

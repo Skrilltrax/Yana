@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="DarkTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimaryDark">@color/colorBackgroundDark</item>
+        <item name="colorPrimary">@color/colorBackgroundDark</item>
+        <item name="android:background">@color/colorBackgroundDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorTextDark</item>
+        <item name="android:navigationBarColor">@color/colorBackgroundDark</item>
+        <item name="android:navigationBarDividerColor">@color/colorBackgroundDark</item>
+        <item name="editTextColor">@color/colorTextDark</item>
+    </style>
+    <color name="colorHintDark">#cdcdcd</color>
+</resources>
