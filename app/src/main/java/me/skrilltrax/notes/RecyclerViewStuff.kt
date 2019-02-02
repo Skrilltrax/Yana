@@ -25,4 +25,5 @@ class RecyclerViewStuff(activity: Activity){
         Log.e("RecyclerViewStuff",list.toString())
     }
 
+
 }

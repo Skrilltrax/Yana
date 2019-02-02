@@ -29,6 +29,7 @@ class NoteActivity : AppCompatActivity(), TextWatcher {
         val editDetail: EditText = findViewById(R.id.edit_detail)
         saveButton = findViewById(R.id.fab)
         saveButton.isEnabled = false
+
         var position: Int = -1
         val bundle = intent.extras
 
@@ -45,7 +46,7 @@ class NoteActivity : AppCompatActivity(), TextWatcher {
 
 
         editTitle.addTextChangedListener(this)
-
+        editDetail.addTextChangedListener(this)
         saveButton.setOnClickListener {
 
 

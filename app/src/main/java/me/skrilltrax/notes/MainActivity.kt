@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
         setTheme(Utils.getTheme(this))
         setContentView(R.layout.activity_main)
 
@@ -32,8 +31,6 @@ class MainActivity : AppCompatActivity() {
 
         val settingsButton: ImageButton = findViewById(R.id.settings_button)
         settingsButton.setOnClickListener {
-//            Utils.changeTheme(this)
-//            recreate()
             val intent = Intent(this,SettingsActivity::class.java)
             startActivity(intent)
         }
