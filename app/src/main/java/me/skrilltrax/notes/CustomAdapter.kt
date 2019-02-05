@@ -8,17 +8,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.RecyclerView
 
-class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
-
-
+class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAdapter.MyViewHolder>(), View.OnLongClickListener {
     init {
         CustomAdapter.list = list
         Log.e(TAG,list.toString())
 
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         list = Utils.getNotes(parent.context)
@@ -34,10 +35,17 @@ class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAda
         Log.d(TAG,"In OnBindViewHolder")
         holder.titleTextView.text = list?.get(position)?.titleText
         holder.detailTextView.text = list?.get(position)?.detailText
-
+        holder.itemView.setOnLongClickListener(this)
     }
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, View.OnLongClickListener {
+    override fun onLongClick(v: View?): Boolean {
+        Log.e("LongClick","WOOORRRKKKK")
+        val modalBottomSheet = OptionsListDialogFragment()
+        modalBottomSheet.showNow((v?.context as AppCompatActivity).supportFragmentManager,"HHHHHHHHHHHHWWWWWWWYYYYYY")
+        return true
+    }
+
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var titleTextView: TextView = itemView.findViewById(R.id.note_title)
 
         var detailTextView: TextView = itemView.findViewById(R.id.note_detail)
@@ -58,15 +66,6 @@ class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAda
             intent.putExtras(bundle)
             v?.context?.startActivity(intent)
         }
-
-        override fun onLongClick(v: View?): Boolean {
-            Log.e("LongClick","WOOORRRKKKK")
-            OptionsListDialogFragment.newInstance(30)
-                    .show((v?.context as AppCompatActivity)
-                    .supportFragmentManager, "dialog")
-            return true
-        }
-
 
          companion object {
              private val TAG: String = MyViewHolder::class.java.simpleName

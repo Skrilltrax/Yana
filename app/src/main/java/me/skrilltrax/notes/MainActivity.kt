@@ -8,12 +8,13 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.preference.PreferenceManager
 import com.google.android.material.button.MaterialButton
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var userText: TextView
+
     lateinit var prefs: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,9 +43,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
     override fun onResume() {
         super.onResume()
         userText.text = prefs.getString("user_name","User")
     }
+
 }
