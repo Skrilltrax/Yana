@@ -4,12 +4,28 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimaryDark">@color/colorBackgroundDark</item>
         <item name="colorPrimary">@color/colorBackgroundDark</item>
-        <item name="android:background">@color/colorBackgroundDark</item>
+        <item name="colorBackground">@color/colorBackgroundDark</item>
+        <item name="android:colorBackground">@color/colorBackgroundDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@color/colorTextDark</item>
         <item name="android:navigationBarColor">@color/colorBackgroundDark</item>
         <item name="android:navigationBarDividerColor">@color/colorBackgroundDark</item>
         <item name="editTextColor">@color/colorTextDark</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
     <color name="colorHintDark">#cdcdcd</color>
+
+    <style name="LightTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorWhite</item>
+        <item name="colorPrimaryDark">@color/colorWhite</item>
+        <item name="colorBackground">@color/colorWhite</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorHint">@color/colorTextHintLight</item>
+        <item name="android:colorBackground">@color/colorBackgroundLight</item>
+        <item name="android:textColor">@color/colorTextLight</item>
+        <item name="windowActionBar">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
 </resources>

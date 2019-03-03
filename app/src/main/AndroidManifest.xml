@@ -24,11 +24,9 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".NoteActivity"
-                android:theme="@style/LightTheme" />
+                android:name=".NoteActivity"/>
 
         <activity
-                android:name=".SettingsActivity"
-                android:theme="@style/LightTheme" />
+                android:name=".SettingsActivity"/>
     </application>
 </manifest>

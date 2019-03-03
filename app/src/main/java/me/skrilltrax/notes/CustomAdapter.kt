@@ -14,21 +14,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.RecyclerView
 
-class CustomAdapter(list: ArrayList<NoteData>?, longClickListener: LongClickListener) : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
+class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
 
-    lateinit var longClickListener: LongClickListener
 
     init {
         CustomAdapter.list = list
         Log.e(TAG,list.toString())
-        this.longClickListener = longClickListener
     }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         list = Utils.getNotes(parent.context)
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.recycler_layout,parent,false)
-        return MyViewHolder(view, longClickListener)
+        return MyViewHolder(view)
     }
 
     override fun getItemCount(): Int {
@@ -42,15 +40,13 @@ class CustomAdapter(list: ArrayList<NoteData>?, longClickListener: LongClickList
 //        holder.itemView.setOnLongClickListener(this)
     }
 
-    class MyViewHolder(itemView: View, var onLongClickListener: LongClickListener) : RecyclerView.ViewHolder(itemView), View.OnClickListener/*, View.OnLongClickListener */{
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener, View.OnLongClickListener {
 
         var titleTextView: TextView = itemView.findViewById(R.id.note_title)
         var detailTextView: TextView = itemView.findViewById(R.id.note_detail)
         init {
             itemView.setOnClickListener(this)
-            itemView.setOnLongClickListener {
-                onLongClickListener.onLongClick()
-            }
+            itemView.setOnLongClickListener(this)
         }
 
         override fun onClick(v: View?) {
@@ -66,12 +62,12 @@ class CustomAdapter(list: ArrayList<NoteData>?, longClickListener: LongClickList
             v?.context?.startActivity(intent)
         }
 
-        /*override fun onLongClick(v: View?): Boolean {
+        override fun onLongClick(v: View?): Boolean {
             Log.e("LongClick","WOOORRRKKKK")
             val modalSheet = ModalSheet()
             modalSheet.show((v?.context as AppCompatActivity).supportFragmentManager,"MODALBOTTOMSHEET")
             return true
-        }*/
+        }
 
          companion object {
              private val TAG: String = MyViewHolder::class.java.simpleName

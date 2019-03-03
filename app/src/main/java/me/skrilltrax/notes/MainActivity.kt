@@ -13,7 +13,7 @@ import android.widget.Toast
 import androidx.preference.PreferenceManager
 import com.google.android.material.button.MaterialButton
 
-class MainActivity : AppCompatActivity(), LongClickListener{
+class MainActivity : AppCompatActivity() {
     private lateinit var userText: TextView
 
     lateinit var prefs: SharedPreferences
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), LongClickListener{
         Log.d("MainActivity","inOnCreate")
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
         this.setSupportActionBar(toolbar)
-        RecyclerViewStuff(this,this)
+        RecyclerViewStuff(this)
 
         val settingsButton: ImageButton = findViewById(R.id.settings_button)
         settingsButton.setOnClickListener {
@@ -50,11 +50,5 @@ class MainActivity : AppCompatActivity(), LongClickListener{
         super.onResume()
         userText.text = prefs.getString("user_name","User")
     }
-    override fun onLongClick(): Boolean {
-        val modalSheet = ModalSheet()
-        modalSheet.show(supportFragmentManager,modalSheet.tag)
-        return true
-    }
-
 
 }

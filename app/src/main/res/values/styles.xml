@@ -6,11 +6,15 @@
         <item name="colorPrimary">@color/colorWhite</item>
         <item name="colorPrimaryDark">@color/colorWhite</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorBackground">@color/colorBackgroundLight</item>
         <item name="android:textColorHint">@color/colorTextHintLight</item>
-        <item name="android:background">@color/colorBackgroundLight</item>
+        <item name="android:colorBackground">@color/colorBackgroundLight</item>
         <item name="android:textColor">@color/colorTextLight</item>
         <item name="windowActionBar">true</item>
         <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:navigationBarColor">@color/colorBackgroundLight</item>
+        <item name="android:navigationBarDividerColor" tools:targetApi="o_mr1">@color/colorBackgroundLight</item>
+        <!--<item name="android:background">@color/colorBackgroundLight</item>-->
     </style>
 
     <style name="DarkTheme" parent="Theme.MaterialComponents.NoActionBar">
@@ -18,13 +22,16 @@
         <item name="colorPrimaryDark">@color/colorBackgroundDark</item>
         <item name="colorPrimary">@color/colorBackgroundDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorBackground">@color/colorBackgroundDark</item>
         <item name="editTextColor">@color/colorWhite</item>
         <item name="android:textColorHint">@color/colorTextHintDark</item>
-        <item name="android:background">@color/colorBackgroundDark</item>
+        <item name="android:colorBackground">@color/colorBackgroundDark</item>
         <item name="android:textColor">@color/colorTextDark</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="windowActionBar">true</item>
+        <!--<item name="android:background">@color/colorBackgroundDark</item>-->
         <item name="android:navigationBarColor">@color/colorBackgroundDark</item>
         <item name="android:navigationBarDividerColor" tools:targetApi="o_mr1">@color/colorBackgroundDark</item>
-        <item name="android:backgroundDimEnabled">true</item>
     </style>
 
 

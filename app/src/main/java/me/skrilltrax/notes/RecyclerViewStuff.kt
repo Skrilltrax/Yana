@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerViewStuff(activity: AppCompatActivity, longClickListener: LongClickListener){
+class RecyclerViewStuff(activity: AppCompatActivity){
 
     companion object {
         lateinit var recyclerView: RecyclerView
@@ -20,7 +20,7 @@ class RecyclerViewStuff(activity: AppCompatActivity, longClickListener: LongClic
         recyclerView = activity.findViewById(R.id.recycler_view)
         layoutManager = LinearLayoutManager(activity)
         list = Utils.getNotes(activity)
-        adapter = CustomAdapter(list, longClickListener)
+        adapter = CustomAdapter(list)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
         Log.e("RecyclerViewStuff",list.toString())
