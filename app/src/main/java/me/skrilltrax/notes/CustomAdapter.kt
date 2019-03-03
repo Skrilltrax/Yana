@@ -1,5 +1,6 @@
 package me.skrilltrax.notes
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -13,18 +14,21 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.RecyclerView
 
-class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAdapter.MyViewHolder>(), View.OnLongClickListener {
+class CustomAdapter(list: ArrayList<NoteData>?, longClickListener: LongClickListener) : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
+
+    lateinit var longClickListener: LongClickListener
+
     init {
         CustomAdapter.list = list
         Log.e(TAG,list.toString())
-
+        this.longClickListener = longClickListener
     }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         list = Utils.getNotes(parent.context)
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.recycler_layout,parent,false)
-        return MyViewHolder(view)
+        return MyViewHolder(view, longClickListener)
     }
 
     override fun getItemCount(): Int {
@@ -35,23 +39,18 @@ class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAda
         Log.d(TAG,"In OnBindViewHolder")
         holder.titleTextView.text = list?.get(position)?.titleText
         holder.detailTextView.text = list?.get(position)?.detailText
-        holder.itemView.setOnLongClickListener(this)
+//        holder.itemView.setOnLongClickListener(this)
     }
 
-    override fun onLongClick(v: View?): Boolean {
-        Log.e("LongClick","WOOORRRKKKK")
-        val modalBottomSheet = OptionsListDialogFragment()
-        modalBottomSheet.showNow((v?.context as AppCompatActivity).supportFragmentManager,"HHHHHHHHHHHHWWWWWWWYYYYYY")
-        return true
-    }
+    class MyViewHolder(itemView: View, var onLongClickListener: LongClickListener) : RecyclerView.ViewHolder(itemView), View.OnClickListener/*, View.OnLongClickListener */{
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var titleTextView: TextView = itemView.findViewById(R.id.note_title)
-
         var detailTextView: TextView = itemView.findViewById(R.id.note_detail)
-
         init {
             itemView.setOnClickListener(this)
+            itemView.setOnLongClickListener {
+                onLongClickListener.onLongClick()
+            }
         }
 
         override fun onClick(v: View?) {
@@ -66,6 +65,13 @@ class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAda
             intent.putExtras(bundle)
             v?.context?.startActivity(intent)
         }
+
+        /*override fun onLongClick(v: View?): Boolean {
+            Log.e("LongClick","WOOORRRKKKK")
+            val modalSheet = ModalSheet()
+            modalSheet.show((v?.context as AppCompatActivity).supportFragmentManager,"MODALBOTTOMSHEET")
+            return true
+        }*/
 
          companion object {
              private val TAG: String = MyViewHolder::class.java.simpleName
