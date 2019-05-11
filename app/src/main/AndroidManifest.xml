@@ -4,6 +4,7 @@
           package="me.skrilltrax.notes">
 
     <application
+            android:name=".Application"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
@@ -13,9 +14,9 @@
             tools:ignore="GoogleAppIndexingWarning">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value="me.skrilltrax.notes.MainActivity"/>
+                    android:value="me.skrilltrax.notes.ui.MainActivity"/>
         <activity
-                android:name=".MainActivity"
+                android:name=".ui.MainActivity"
                 android:theme="@style/LightTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -24,9 +25,9 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".NoteActivity"/>
+                android:name=".ui.NoteActivity"/>
 
         <activity
-                android:name=".SettingsActivity"/>
+                android:name=".ui.SettingsActivity"/>
     </application>
 </manifest>

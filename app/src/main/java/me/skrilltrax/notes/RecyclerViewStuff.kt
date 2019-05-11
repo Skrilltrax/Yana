@@ -1,10 +1,12 @@
 package me.skrilltrax.notes
 
-import android.app.Activity
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import me.skrilltrax.notes.adapter.CustomAdapter
+import me.skrilltrax.notes.model.NoteData
+import me.skrilltrax.notes.util.Utils
 
 class RecyclerViewStuff(activity: AppCompatActivity){
 

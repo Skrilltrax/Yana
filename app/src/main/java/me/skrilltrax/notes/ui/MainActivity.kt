@@ -1,17 +1,17 @@
-package me.skrilltrax.notes
+package me.skrilltrax.notes.ui
 
 import android.content.Intent
 import android.content.SharedPreferences
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import androidx.preference.PreferenceManager
 import com.google.android.material.button.MaterialButton
+import me.skrilltrax.notes.R
+import me.skrilltrax.notes.RecyclerViewStuff
+import me.skrilltrax.notes.util.Utils
 
 class MainActivity : AppCompatActivity() {
     private lateinit var userText: TextView
@@ -34,14 +34,14 @@ class MainActivity : AppCompatActivity() {
 
         val settingsButton: ImageButton = findViewById(R.id.settings_button)
         settingsButton.setOnClickListener {
-            val intent = Intent(this,SettingsActivity::class.java)
+            val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
         }
 
         val newNoteButton: MaterialButton = findViewById(R.id.fab)
         newNoteButton.setOnClickListener {
 
-            val intent = Intent(this,NoteActivity::class.java)
+            val intent = Intent(this, NoteActivity::class.java)
             startActivity(intent)
         }
     }
