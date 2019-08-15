@@ -1,18 +1,18 @@
-package me.skrilltrax.notes
+package me.skrilltrax.notes.ui.activities
 
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.WindowManager
 import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.widget.addTextChangedListener
 import com.google.android.material.button.MaterialButton
+import me.skrilltrax.notes.R
+import me.skrilltrax.notes.RecyclerViewStuff
+import me.skrilltrax.notes.Utils
+import me.skrilltrax.notes.model.NoteData
 
 class NoteActivity : AppCompatActivity(), TextWatcher {
 
@@ -33,7 +33,11 @@ class NoteActivity : AppCompatActivity(), TextWatcher {
         var position: Int = -1
         val bundle = intent.extras
 
-        editTitle.setHintTextColor(Color.parseColor(Utils.getTransparentColor(this)))
+        editTitle.setHintTextColor(Color.parseColor(
+            Utils.getTransparentColor(
+                this
+            )
+        ))
 
         if (bundle != null) {
             val titleText: String? = bundle.getString("title")
@@ -65,7 +69,7 @@ class NoteActivity : AppCompatActivity(), TextWatcher {
                 list?.add(note)
             }
             Log.e("NoteActivity",list.toString())
-            Utils.saveNotes(this,list)
+            Utils.saveNotes(this, list)
             RecyclerViewStuff.adapter.updateDataSet(this)
 
             finish()

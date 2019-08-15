@@ -1,6 +1,5 @@
-package me.skrilltrax.notes
+package me.skrilltrax.notes.adapter
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -9,22 +8,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.RecyclerView
+import me.skrilltrax.notes.R
+import me.skrilltrax.notes.Utils
+import me.skrilltrax.notes.model.NoteData
+import me.skrilltrax.notes.ui.ModalSheet
+import me.skrilltrax.notes.ui.activities.NoteActivity
 
 class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
 
 
     init {
-        CustomAdapter.list = list
+        Companion.list = list
         Log.e(TAG,list.toString())
     }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        list = Utils.getNotes(parent.context)
+        list =
+            Utils.getNotes(parent.context)
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.recycler_layout,parent,false)
         return MyViewHolder(view)
     }
@@ -57,7 +60,7 @@ class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAda
             bundle.putString("detail", list?.get(itemPosition)?.detailText)
             bundle.putInt("position",itemPosition)
 
-            val intent = Intent(v?.context,NoteActivity::class.java)
+            val intent = Intent(v?.context, NoteActivity::class.java)
             intent.putExtras(bundle)
             v?.context?.startActivity(intent)
         }
@@ -77,7 +80,8 @@ class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAda
 
     fun updateDataSet(context: Context) {
 
-        list = Utils.getNotes(context)
+        list =
+            Utils.getNotes(context)
         notifyDataSetChanged()
     }
 

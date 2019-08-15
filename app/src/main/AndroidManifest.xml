@@ -13,9 +13,9 @@
             tools:ignore="GoogleAppIndexingWarning">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value="me.skrilltrax.notes.MainActivity"/>
+                    android:value="me.skrilltrax.notes.ui.activities.MainActivity"/>
         <activity
-                android:name=".MainActivity"
+                android:name=".ui.activities.MainActivity"
                 android:theme="@style/LightTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -24,9 +24,9 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".NoteActivity"/>
+                android:name=".ui.activities.NoteActivity"/>
 
         <activity
-                android:name=".SettingsActivity"/>
+                android:name=".ui.activities.SettingsActivity"/>
     </application>
 </manifest>

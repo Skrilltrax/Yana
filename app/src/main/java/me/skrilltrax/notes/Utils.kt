@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.os.Build
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import me.skrilltrax.notes.model.NoteData
 
 
 class Utils {

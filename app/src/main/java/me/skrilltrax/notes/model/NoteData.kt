@@ -1,4 +1,4 @@
-package me.skrilltrax.notes
+package me.skrilltrax.notes.model
 
 class NoteData {
     lateinit var titleText: String
