@@ -18,16 +18,13 @@ import me.skrilltrax.notes.ui.activities.NoteActivity
 
 class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
 
-
     init {
         Companion.list = list
         Log.e(TAG,list.toString())
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        list =
-            Utils.getNotes(parent.context)
+        list = Utils.getNotes(parent.context)
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.recycler_layout,parent,false)
         return MyViewHolder(view)
     }
