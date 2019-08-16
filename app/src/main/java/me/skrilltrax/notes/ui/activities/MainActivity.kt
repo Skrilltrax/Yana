@@ -4,9 +4,9 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.preference.PreferenceManager
 import com.google.android.material.button.MaterialButton
 import me.skrilltrax.notes.*
@@ -24,9 +24,7 @@ class MainActivity : AppCompatActivity() {
         userText = findViewById(R.id.title_bottom)
         prefs = PreferenceManager.getDefaultSharedPreferences(this)
         userText.text = prefs.getString("user_name","User")
-        Log.e("MainActivity",userText.text.toString())
-        Log.d("MainActivity","inOnCreate")
-        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
         this.setSupportActionBar(toolbar)
         RecyclerViewStuff(this)
 
@@ -38,7 +36,6 @@ class MainActivity : AppCompatActivity() {
 
         val newNoteButton: MaterialButton = findViewById(R.id.fab)
         newNoteButton.setOnClickListener {
-
             val intent = Intent(this, NoteActivity::class.java)
             startActivity(intent)
         }
@@ -48,5 +45,4 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         userText.text = prefs.getString("user_name","User")
     }
-
 }
