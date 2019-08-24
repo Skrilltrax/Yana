@@ -27,8 +27,6 @@ class SettingsActivity : AppCompatActivity(){
             }
         }
 
-
-
         setContentView(R.layout.settings_activity)
 
         val toolbar: Toolbar = findViewById(R.id.toolbar_settings)
@@ -43,7 +41,7 @@ class SettingsActivity : AppCompatActivity(){
 
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.preferences, rootKey)
-            etp =  findPreference("user_name") as androidx.preference.EditTextPreference
+            etp =  findPreference("user_name")!!
             etp?.summary = preferenceManager.sharedPreferences.getString("user_name","User")
         }
 

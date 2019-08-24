@@ -53,6 +53,30 @@ object Libs {
       Versions.legacy_support_v4
 
   /**
+   * https://developer.android.com/topic/libraries/architecture/index.html
+   */
+  const val lifecycle_extensions: String = "androidx.lifecycle:lifecycle-extensions:" +
+      Versions.lifecycle_extensions
+
+  /**
+   * https://developer.android.com/topic/libraries/architecture/index.html
+   */
+  const val navigation_fragment_ktx: String = "androidx.navigation:navigation-fragment-ktx:" +
+      Versions.androidx_navigation
+
+  /**
+   * https://developer.android.com/topic/libraries/architecture/index.html
+   */
+  const val navigation_safe_args_gradle_plugin: String =
+      "androidx.navigation:navigation-safe-args-gradle-plugin:" + Versions.androidx_navigation
+
+  /**
+   * https://developer.android.com/topic/libraries/architecture/index.html
+   */
+  const val navigation_ui_ktx: String = "androidx.navigation:navigation-ui-ktx:" +
+      Versions.androidx_navigation
+
+  /**
    * https://developer.android.com/jetpack/androidx
    */
   const val preference: String = "androidx.preference:preference:" + Versions.preference

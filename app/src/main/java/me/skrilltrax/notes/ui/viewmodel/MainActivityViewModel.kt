@@ -12,8 +12,8 @@ class MainActivityViewModel: ViewModel() {
 
     private val repo: Repository = Repository(Realm.getDefaultInstance())
 
-    private lateinit var _notesList: MutableLiveData<List<NoteData>>
-    private lateinit var _userName: MutableLiveData<String>
+    private var _notesList: MutableLiveData<List<NoteData>> = MutableLiveData()
+    private var _userName: MutableLiveData<String> = MutableLiveData("User")
 
     val notesList: LiveData<List<NoteData>>
         get() = _notesList
@@ -26,6 +26,10 @@ class MainActivityViewModel: ViewModel() {
 
     private fun getUserName() {
         _userName.postValue(PreferenceUtils.getUserName())
+    }
+
+    fun changeUserName(name: String) {
+        _userName.postValue(name)
     }
 
     fun getAllNotes() {

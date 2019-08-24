@@ -18,11 +18,15 @@ object Versions {
 
   const val core_ktx: String = "1.2.0-alpha03"
 
-  const val androidx_databinding: String = "3.6.0-alpha07"
+  const val androidx_databinding: String = "3.6.0-alpha02" // available: "3.6.0-alpha07"
 
   const val fragment_ktx: String = "1.2.0-alpha02"
 
   const val legacy_support_v4: String = "1.0.0"
+
+  const val lifecycle_extensions: String = "2.0.0" // available: "2.2.0-alpha03"
+
+  const val androidx_navigation: String = "2.1.0-rc01" // available: "2.2.0-alpha01"
 
   const val preference: String = "1.1.0-rc01"
 
@@ -32,11 +36,12 @@ object Versions {
 
   const val androidx_test_runner: String = "1.3.0-alpha02"
 
-  const val aapt2: String = "3.6.0-alpha07-5720371"
+  const val aapt2: String = "3.6.0-alpha02-5435860" // available: "3.6.0-alpha07-5720371"
 
-  const val com_android_tools_build_gradle: String = "3.6.0-alpha02"
+  const val com_android_tools_build_gradle: String = "3.5.0-rc02"
+       // available: "3.6.0-alpha07"
 
-  const val lint_gradle: String = "26.6.0-alpha07"
+  const val lint_gradle: String = "26.6.0-alpha02" // available: "26.6.0-alpha07"
 
   const val material: String = "1.1.0-alpha09"
 

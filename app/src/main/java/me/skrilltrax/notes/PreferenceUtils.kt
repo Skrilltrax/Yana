@@ -12,7 +12,7 @@ object PreferenceUtils {
     private const val USER_NAME: String = "user_name"
 
     fun getUserName(): String {
-        return requireNotNull(prefs.getString(USER_NAME, "User"))
+        return requireNotNull(prefs.getString(USER_NAME, "User") ?: "User")
     }
 
     fun getFirstRun(): Boolean {

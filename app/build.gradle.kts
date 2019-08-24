@@ -4,6 +4,7 @@ plugins {
     kotlin(Plugins.kotlinExtensions)
     kotlin(Plugins.kotlinKapt)
     id(Plugins.realm)
+    id(Plugins.safeArgs)
 }
 
 android {
@@ -22,6 +23,14 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
     dataBinding.isEnabled = AndroidConfig.useDataBinding
 }
 
@@ -39,6 +48,10 @@ dependencies {
     implementation(Libs.legacy_support_v4)
     implementation(Libs.realm_android_kotlin_extensions)
     implementation(Libs.firebase_analytics)
+    implementation(Libs.lifecycle_extensions)
+    implementation (Libs.navigation_fragment_ktx)
+    implementation (Libs.navigation_ui_ktx)
+
 
     testImplementation(Libs.junit)
     androidTestImplementation(Libs.androidx_test_runner)
