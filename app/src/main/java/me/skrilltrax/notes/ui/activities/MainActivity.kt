@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(Utils.getTheme(this))
-        setContentView(R.layout.activity_main)
+//        setContentView(R.layout.activity_main)
 
         userText = findViewById(R.id.title_bottom)
         prefs = PreferenceManager.getDefaultSharedPreferences(this)

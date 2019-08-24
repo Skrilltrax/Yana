@@ -14,31 +14,31 @@ import org.gradle.plugin.use.PluginDependencySpec
 object Versions {
   const val appcompat: String = "1.1.0-rc01"
 
-  const val constraintlayout: String = "1.1.3"
+  const val constraintlayout: String = "2.0.0-beta2"
 
   const val core_ktx: String = "1.2.0-alpha03"
 
-  const val androidx_databinding: String = "3.6.0-alpha05"
+  const val androidx_databinding: String = "3.6.0-alpha07"
 
-  const val fragment_ktx: String = "1.0.0"
+  const val fragment_ktx: String = "1.2.0-alpha02"
 
   const val legacy_support_v4: String = "1.0.0"
 
-  const val preference: String = "1.0.0"
+  const val preference: String = "1.1.0-rc01"
 
-  const val recyclerview: String = "1.0.0"
+  const val recyclerview: String = "1.1.0-beta03"
 
-  const val espresso_core: String = "3.2.0"
+  const val espresso_core: String = "3.3.0-alpha02"
 
-  const val androidx_test_runner: String = "1.2.0"
+  const val androidx_test_runner: String = "1.3.0-alpha02"
 
-  const val aapt2: String = "3.6.0-alpha05-5665215"
+  const val aapt2: String = "3.6.0-alpha07-5720371"
 
-  const val com_android_tools_build_gradle: String = "3.6.0-alpha05"
+  const val com_android_tools_build_gradle: String = "3.6.0-alpha07"
 
-  const val lint_gradle: String = "26.6.0-alpha05"
+  const val lint_gradle: String = "26.6.0-alpha07"
 
-  const val material: String = "1.0.0"
+  const val material: String = "1.1.0-alpha09"
 
   const val gson: String = "2.8.5"
 
@@ -50,7 +50,7 @@ object Versions {
 
   const val io_realm: String = "5.14.0"
 
-  const val junit: String = "4.12"
+  const val junit: String = "4.13-beta-3"
 
   const val org_jetbrains_kotlin: String = "1.3.50"
 

@@ -28,6 +28,12 @@ allprojects {
         
     }
 }
+buildSrcVersions {
+    indent = "  "
+    renameLibs = "Libs"
+    renameVersions = "Versions"
+    rejectedVersionKeywords("cr", "m", "preview", "eap")
+}
 
 tasks {
     val clean by registering(Delete::class) {

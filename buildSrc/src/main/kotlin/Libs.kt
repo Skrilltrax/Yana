@@ -8,7 +8,7 @@ import kotlin.String
  */
 object Libs {
   /**
-   * http://developer.android.com/tools/extras/support-library.html
+   * https://developer.android.com/jetpack/androidx
    */
   const val appcompat: String = "androidx.appcompat:appcompat:" + Versions.appcompat
 
@@ -19,7 +19,7 @@ object Libs {
       Versions.constraintlayout
 
   /**
-   * http://developer.android.com/tools/extras/support-library.html
+   * https://developer.android.com/jetpack/androidx
    */
   const val core_ktx: String = "androidx.core:core-ktx:" + Versions.core_ktx
 
@@ -42,7 +42,7 @@ object Libs {
       Versions.androidx_databinding
 
   /**
-   * http://developer.android.com/tools/extras/support-library.html
+   * https://developer.android.com/jetpack/androidx
    */
   const val fragment_ktx: String = "androidx.fragment:fragment-ktx:" + Versions.fragment_ktx
 
@@ -53,12 +53,12 @@ object Libs {
       Versions.legacy_support_v4
 
   /**
-   * http://developer.android.com/tools/extras/support-library.html
+   * https://developer.android.com/jetpack/androidx
    */
   const val preference: String = "androidx.preference:preference:" + Versions.preference
 
   /**
-   * http://developer.android.com/tools/extras/support-library.html
+   * https://developer.android.com/jetpack/androidx
    */
   const val recyclerview: String = "androidx.recyclerview:recyclerview:" + Versions.recyclerview
 
