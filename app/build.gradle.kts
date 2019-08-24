@@ -38,6 +38,7 @@ dependencies {
     implementation(Libs.gson)
     implementation(Libs.legacy_support_v4)
     implementation(Libs.realm_android_kotlin_extensions)
+    implementation(Libs.firebase_analytics)
 
     testImplementation(Libs.junit)
     androidTestImplementation(Libs.androidx_test_runner)

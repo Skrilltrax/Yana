@@ -42,13 +42,17 @@ object Versions {
 
   const val gson: String = "2.8.5"
 
-  const val de_fayard_buildsrcversions_gradle_plugin: String = "0.4.1"
+  const val firebase_analytics: String = "17.1.0"
+
+  const val google_services: String = "4.3.1"
+
+  const val de_fayard_buildsrcversions_gradle_plugin: String = "0.4.2"
 
   const val io_realm: String = "5.14.0"
 
   const val junit: String = "4.12"
 
-  const val org_jetbrains_kotlin: String = "1.3.41"
+  const val org_jetbrains_kotlin: String = "1.3.50"
 
   const val se_patrikerdes_use_latest_versions_gradle_plugin: String = "0.2.12"
 

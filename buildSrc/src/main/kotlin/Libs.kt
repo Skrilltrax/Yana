@@ -98,6 +98,11 @@ object Libs {
    */
   const val gson: String = "com.google.code.gson:gson:" + Versions.gson
 
+  const val firebase_analytics: String = "com.google.firebase:firebase-analytics:" +
+      Versions.firebase_analytics
+
+  const val google_services: String = "com.google.gms:google-services:" + Versions.google_services
+
   const val de_fayard_buildsrcversions_gradle_plugin: String =
       "de.fayard.buildSrcVersions:de.fayard.buildSrcVersions.gradle.plugin:" +
       Versions.de_fayard_buildsrcversions_gradle_plugin

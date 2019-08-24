@@ -9,6 +9,7 @@ buildscript {
         classpath(Libs.com_android_tools_build_gradle)
         classpath(Libs.kotlin_gradle_plugin)
         classpath(Libs.realm_gradle_plugin)
+        classpath(Libs.google_services)
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -16,8 +17,8 @@ buildscript {
 }
 
 plugins {
-    id("de.fayard.buildSrcVersions") version "0.4.1"
-    id("se.patrikerdes.use-latest-versions") version "0.2.12"
+    id("de.fayard.buildSrcVersions") version Versions.de_fayard_buildsrcversions_gradle_plugin
+    id("se.patrikerdes.use-latest-versions") version Versions.se_patrikerdes_use_latest_versions_gradle_plugin
 }
 
 allprojects {
