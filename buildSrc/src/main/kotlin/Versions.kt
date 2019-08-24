@@ -34,7 +34,7 @@ object Versions {
 
   const val aapt2: String = "3.6.0-alpha07-5720371"
 
-  const val com_android_tools_build_gradle: String = "3.6.0-alpha07"
+  const val com_android_tools_build_gradle: String = "3.6.0-alpha02"
 
   const val lint_gradle: String = "26.6.0-alpha07"
 
