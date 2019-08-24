@@ -8,5 +8,10 @@ class MyApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         Realm.init(this)
+        instance = this
+    }
+
+    companion object {
+        lateinit var instance: MyApplication
     }
 }

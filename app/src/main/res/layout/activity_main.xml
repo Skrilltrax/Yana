@@ -1,86 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-		xmlns:android="http://schemas.android.com/apk/res/android"
-		android:layout_height="match_parent"
-		android:layout_width="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:app="http://schemas.android.com/apk/res-auto">
-	<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
-        	android:layout_width="match_parent"
-        	android:layout_height="match_parent"
-        	tools:context=".ui.activities.MainActivity">
 
-    	<androidx.appcompat.widget.Toolbar
-        	        android:id="@+id/toolbar"
-            	    android:layout_width="match_parent"
-                	android:layout_height="wrap_content"
-	                android:layout_marginTop="25dp"
-    	            android:layout_marginBottom="20dp"
-        	        android:elevation="0dp"
+	<data>
+		<variable
+				name="viewModel"
+				type="me.skrilltrax.notes.ui.viewmodel.MainActivityViewModel" />
+	</data>
+
+	<androidx.coordinatorlayout.widget.CoordinatorLayout
+			android:layout_height="match_parent"
+			android:layout_width="match_parent">
+
+		<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				tools:context=".ui.activities.MainActivity">
+
+			<androidx.appcompat.widget.Toolbar
+					android:id="@+id/toolbar"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="25dp"
+					android:layout_marginBottom="20dp"
+					android:elevation="0dp"
 					android:paddingBottom="40dp">
 
-    	        <RelativeLayout
-        	            android:layout_width="wrap_content"
-            	        android:layout_height="wrap_content"
-                	    android:padding="10dp">
+				<RelativeLayout
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:padding="10dp">
 
 					<TextView
-                	        android:id="@+id/title_top"
+							android:id="@+id/title_top"
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:text="@string/hello"
 							android:textAllCaps="true"
-							android:textSize="35sp"
-							/>
+							android:textSize="35sp" />
 
-                	<androidx.appcompat.widget.AppCompatImageButton
+					<androidx.appcompat.widget.AppCompatImageButton
 							android:id="@+id/settings_button"
-                    	    android:layout_width="wrap_content"
+							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:src="@drawable/ic_settings_24dp"
 							android:layout_alignParentEnd="true"
 							android:tint="@color/colorAccent"
 							android:padding="20dp"
-        	                android:background="?attr/selectableItemBackground"/>
+							android:background="?attr/selectableItemBackground" />
 
-            	    <TextView
-                	        android:id="@+id/title_bottom"
-                    	    android:layout_width="wrap_content"
-                        	android:layout_height="wrap_content"
-                        	android:layout_below="@id/title_top"
-                        	android:text="@string/user"
-                        	android:textStyle="bold"
-                        	android:textAllCaps="true"
-                        	android:textSize="35sp"
-                        	android:textColor="@color/colorAccent"/>
+					<TextView
+							android:id="@+id/title_bottom"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_below="@id/title_top"
+							android:text="@{viewModel.userName}"
+ 							android:textStyle="bold"
+							android:textAllCaps="true"
+							android:textSize="35sp"
+							android:textColor="@color/colorAccent" />
 
-            </RelativeLayout>
+				</RelativeLayout>
 
-        </androidx.appcompat.widget.Toolbar>
+			</androidx.appcompat.widget.Toolbar>
 
-    	<androidx.recyclerview.widget.RecyclerView
-				android:id="@+id/recycler_view"
-        	    android:layout_width="match_parent"
-            	android:layout_height="match_parent"
-            	android:layout_below="@id/toolbar"
-				android:paddingTop="18dp"
-            	android:paddingStart="25dp"
-				android:paddingEnd="18dp"
-				android:overScrollMode="never"
-				/>
+			<androidx.recyclerview.widget.RecyclerView
+					android:id="@+id/recycler_view"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_below="@id/toolbar"
+					android:paddingTop="18dp"
+					android:paddingStart="25dp"
+					android:paddingEnd="18dp"
+					android:overScrollMode="never" />
 
-	</RelativeLayout>
+		</RelativeLayout>
 
-	<com.google.android.material.button.MaterialButton
-			android:id="@+id/fab"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			style="@style/Widget.FABlikeButton"
-			app:icon="@drawable/ic_add_white_24dp"
-			android:text="Add Note"
-			android:layout_gravity="bottom|end"
-			app:cornerRadius="32dp"
-			android:layout_marginBottom="16dp"
-			android:layout_marginEnd="16dp"
-	/>
+		<com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+				android:id="@+id/fab"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="16dp"
+				android:layout_marginEnd="16dp"
+				android:text="Add Note"
+				android:textColor="@color/colorWhite"
+				android:layout_gravity="bottom|right|end"
+				app:icon="@drawable/ic_add_white_24dp"
+				app:iconTint="@color/colorWhite"
+				app:backgroundTint="@color/colorAccent"
+				app:cornerRadius="32dp"
+ />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+	</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
