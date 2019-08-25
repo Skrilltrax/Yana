@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorCandyRed">#ff0800</color>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <color name="colorAccent">#ff0800</color>
-    <color name="colorBlack">#000</color>
-    <color name="colorWhite">#fff</color>
+    <!-- Base palette -->
+    <color name="primary_color">#FFFFFF</color>
+    <color name="primary_light_color">#FFFFFF</color>
+    <color name="primary_dark_color">#CCCCCC</color>
+    <color name="secondary_color">#ff0800</color>
+<!--    <color name="secondary_light_color">#FF7539</color>-->
+<!--    <color name="secondary_dark_color">#C30000</color>-->
+    <color name="primary_text_color">#000000</color>
+    <color name="secondary_text_color">#FFFF</color>
 
-
-    <!-- Light Theme colors -->
-
-    <color name="colorBackgroundLight">#FFFFFF</color>
-    <color name="colorTextLight">@color/colorBlack</color>
-    <color name="colorTextHintLight">#7000574B</color>
-
-
-    <!-- Light Theme colors -->
-
-    <color name="colorTextDark">@color/colorWhite</color>
-    <color name="colorTextHintDark">#cdcdcd</color>
-    <color name="colorBackgroundDark">#212121</color>
-
+    <!-- Theme variables -->
+    <color name="color_control_normal">@color/primary_text_color</color>
+    <color name="system_bars_color">@color/primary_color</color>
+    <color name="white">#FFFFFF</color>
 </resources>

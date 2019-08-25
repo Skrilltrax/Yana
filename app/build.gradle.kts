@@ -52,6 +52,7 @@ dependencies {
     implementation (Libs.navigation_fragment_ktx)
     implementation (Libs.navigation_ui_ktx)
 
+    debugImplementation(Libs.leakcanary_android)
 
     testImplementation(Libs.junit)
     androidTestImplementation(Libs.androidx_test_runner)
