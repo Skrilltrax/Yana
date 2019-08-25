@@ -40,16 +40,16 @@ class Utils {
 
         fun getTransparentColor(context: Context) : String {
             var color:String = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                Integer.toHexString(context.getColor(R.color.colorAccent))
+                Integer.toHexString(context.getColor(R.color.secondary_color))
             } else {
                 //noinspection deprecation
-                Integer.toHexString(context.resources.getColor(R.color.colorAccent))
+                Integer.toHexString(context.resources.getColor(R.color.secondary_color))
             }
 
             color = "#" + color.replaceRange(0,2,"70")
             return color
         }
-
+/*
         fun getTheme(context: Context?) : Int {
             val sharedPreferences = context?.getSharedPreferences(PREFS_FILE_NAME,Context.MODE_PRIVATE)
             return sharedPreferences?.getInt(THEME,R.style.LightTheme) ?: R.style.LightTheme
@@ -59,6 +59,7 @@ class Utils {
             val sharedPreferences = context?.getSharedPreferences(PREFS_FILE_NAME,Context.MODE_PRIVATE)
             sharedPreferences?.edit()?.putInt(THEME, theme)?.apply()
         }
+ */
 
         fun isFirstRun(context: Context): Boolean {
             val sharedPreferences = context.getSharedPreferences(PREFS_FILE_NAME, Context.MODE_PRIVATE)

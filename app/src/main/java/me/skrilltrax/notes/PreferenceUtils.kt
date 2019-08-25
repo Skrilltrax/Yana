@@ -19,9 +19,9 @@ object PreferenceUtils {
         return requireNotNull(prefs.getBoolean(FIRST_RUN, true))
     }
 
-    fun getTheme(): Int {
+/*    fun getTheme(): Int {
         return requireNotNull(prefs.getInt(THEME, R.style.LightTheme))
-    }
+    }*/
 
     fun changeTheme(theme: Int) {
         prefs.edit().putInt(THEME, theme).apply()

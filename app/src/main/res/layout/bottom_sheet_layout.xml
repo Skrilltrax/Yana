@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:text="@string/app_name"
             android:gravity="center"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/secondary_color"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/delete"
     />
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:text="Delete Note"
             android:textSize="24sp"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/secondary_color"
             android:gravity="center"
             android:clickable="true"
             android:focusable="true"

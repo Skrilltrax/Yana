@@ -15,9 +15,13 @@
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="me.skrilltrax.notes.ui.activities.MainActivity"/>
+        <meta-data
+                android:name="preloaded_fonts"
+                android:resource="@array/preloaded_fonts" />
+
         <activity
                 android:name=".ui.activities.MainActivity"
-                android:theme="@style/LightTheme">
+                android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

@@ -14,7 +14,6 @@ import me.skrilltrax.notes.R
 import me.skrilltrax.notes.Utils
 import me.skrilltrax.notes.model.NoteData
 import me.skrilltrax.notes.ui.ModalSheet
-import me.skrilltrax.notes.ui.activities.NoteActivity
 
 class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
 
