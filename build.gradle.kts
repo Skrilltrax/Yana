@@ -4,6 +4,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven(url = "https://maven.fabric.io/public")
     }
     dependencies {
         classpath(Libs.com_android_tools_build_gradle)
@@ -11,6 +12,7 @@ buildscript {
         classpath(Libs.realm_gradle_plugin)
         classpath(Libs.google_services)
         classpath(Libs.navigation_safe_args_gradle_plugin)
+        classpath("io.fabric.tools:gradle:1.31.0")
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -25,7 +27,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
     }
 }
 buildSrcVersions {
@@ -36,9 +37,9 @@ buildSrcVersions {
 }
 
 tasks {
-    val clean by registering(Delete::class) {
+    /*val clean by registering(Delete::class) {
         delete(buildDir)
-    }
+    }*/
     val updateGradle by registering(Wrapper::class) {
         gradleVersion = Versions.gradleLatestVersion
         distributionType = Wrapper.DistributionType.ALL

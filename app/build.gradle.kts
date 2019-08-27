@@ -1,10 +1,14 @@
 plugins {
     id(Plugins.application)
+
     kotlin(Plugins.kotlinAndroid)
     kotlin(Plugins.kotlinExtensions)
     kotlin(Plugins.kotlinKapt)
+
     id(Plugins.realm)
     id(Plugins.safeArgs)
+    id(Plugins.fabric)
+    id(Plugins.gms)
 }
 
 android {
@@ -47,10 +51,19 @@ dependencies {
     implementation(Libs.gson)
     implementation(Libs.legacy_support_v4)
     implementation(Libs.realm_android_kotlin_extensions)
-    implementation(Libs.firebase_analytics)
     implementation(Libs.lifecycle_extensions)
     implementation (Libs.navigation_fragment_ktx)
     implementation (Libs.navigation_ui_ktx)
+    implementation(Libs.anko)
+    implementation(Libs.firebase_analytics)
+    implementation(Libs.firebase_auth)
+    implementation("com.google.firebase:firebase-core:17.1.0")
+    implementation("com.crashlytics.sdk.android:crashlytics:2.10.1")
+    implementation("com.firebaseui:firebase-ui-database:5.0.0")
+    implementation("com.firebaseui:firebase-ui-firestore:5.0.0")
+    implementation("com.firebaseui:firebase-ui-auth:5.0.0")
+    implementation("com.firebaseui:firebase-ui-storage:5.0.0")
+    implementation(Libs.play_services_auth)
 
     debugImplementation(Libs.leakcanary_android)
 

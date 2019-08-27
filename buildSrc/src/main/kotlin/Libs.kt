@@ -112,6 +112,9 @@ object Libs {
    */
   const val lint_gradle: String = "com.android.tools.lint:lint-gradle:" + Versions.lint_gradle
 
+  const val play_services_auth: String = "com.google.android.gms:play-services-auth:" +
+      Versions.play_services_auth
+
   /**
    * http://developer.android.com/tools/extras/support-library.html
    */
@@ -124,6 +127,8 @@ object Libs {
 
   const val firebase_analytics: String = "com.google.firebase:firebase-analytics:" +
       Versions.firebase_analytics
+
+  const val firebase_auth: String = "com.google.firebase:firebase-auth:" + Versions.firebase_auth
 
   const val google_services: String = "com.google.gms:google-services:" + Versions.google_services
 
@@ -162,6 +167,11 @@ object Libs {
    * http://junit.org
    */
   const val junit: String = "junit:junit:" + Versions.junit
+
+  /**
+   * https://github.com/JetBrains/anko
+   */
+  const val anko: String = "org.jetbrains.anko:anko:" + Versions.anko
 
   /**
    * https://kotlinlang.org/

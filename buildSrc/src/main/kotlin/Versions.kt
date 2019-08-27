@@ -42,13 +42,17 @@ object Versions {
 
   const val lint_gradle: String = "26.5.0-rc02" // available: "26.6.0-alpha07"
 
+  const val play_services_auth: String = "17.0.0"
+
   const val material: String = "1.1.0-alpha09"
 
   const val gson: String = "2.8.5"
 
   const val firebase_analytics: String = "17.1.0"
 
-  const val google_services: String = "4.3.1"
+  const val firebase_auth: String = "19.0.0"
+
+  const val google_services: String = "4.2.0"
 
   const val leakcanary_android: String = "2.0-beta-3"
 
@@ -57,6 +61,8 @@ object Versions {
   const val io_realm: String = "5.14.0"
 
   const val junit: String = "4.13-beta-3"
+
+  const val anko: String = "0.10.8"
 
   const val org_jetbrains_kotlin: String = "1.3.50"
 

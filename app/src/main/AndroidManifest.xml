@@ -12,26 +12,23 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-            <meta-data
+            <!--<meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value="me.skrilltrax.notes.ui.activities.MainActivity"/>
+                    android:value="me.skrilltrax.notes.ui.activities.MainActivity"/>-->
         <meta-data
                 android:name="preloaded_fonts"
                 android:resource="@array/preloaded_fonts" />
 
         <activity
                 android:name=".ui.activities.MainActivity"
-                android:theme="@style/AppTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                android:theme="@style/AppTheme" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+        <activity android:name=".ui.activities.SplashActivity"
+                  android:label="Splash">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN"/>
+                    <category android:name="android.intent.category.LAUNCHER"/>
+                </intent-filter>
         </activity>
-        <activity
-                android:name=".ui.activities.NoteActivity"/>
-
-        <activity
-                android:name=".ui.activities.SettingsActivity"/>
     </application>
 </manifest>
