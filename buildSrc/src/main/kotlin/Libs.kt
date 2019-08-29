@@ -112,6 +112,31 @@ object Libs {
    */
   const val lint_gradle: String = "com.android.tools.lint:lint-gradle:" + Versions.lint_gradle
 
+  const val crashlytics: String = "com.crashlytics.sdk.android:crashlytics:" + Versions.crashlytics
+
+  /**
+   * https://github.com/firebase/FirebaseUI-Android
+   */
+  const val firebase_ui_auth: String = "com.firebaseui:firebase-ui-auth:" + Versions.com_firebaseui
+
+  /**
+   * https://github.com/firebase/FirebaseUI-Android
+   */
+  const val firebase_ui_database: String = "com.firebaseui:firebase-ui-database:" +
+      Versions.com_firebaseui
+
+  /**
+   * https://github.com/firebase/FirebaseUI-Android
+   */
+  const val firebase_ui_firestore: String = "com.firebaseui:firebase-ui-firestore:" +
+      Versions.com_firebaseui
+
+  /**
+   * https://github.com/firebase/FirebaseUI-Android
+   */
+  const val firebase_ui_storage: String = "com.firebaseui:firebase-ui-storage:" +
+      Versions.com_firebaseui
+
   const val play_services_auth: String = "com.google.android.gms:play-services-auth:" +
       Versions.play_services_auth
 
@@ -130,6 +155,8 @@ object Libs {
 
   const val firebase_auth: String = "com.google.firebase:firebase-auth:" + Versions.firebase_auth
 
+  const val firebase_core: String = "com.google.firebase:firebase-core:" + Versions.firebase_core
+
   const val google_services: String = "com.google.gms:google-services:" + Versions.google_services
 
   /**
@@ -141,6 +168,9 @@ object Libs {
   const val de_fayard_buildsrcversions_gradle_plugin: String =
       "de.fayard.buildSrcVersions:de.fayard.buildSrcVersions.gradle.plugin:" +
       Versions.de_fayard_buildsrcversions_gradle_plugin
+
+  const val io_fabric_tools_gradle: String = "io.fabric.tools:gradle:" +
+      Versions.io_fabric_tools_gradle
 
   const val realm_android_kotlin_extensions: String = "io.realm:realm-android-kotlin-extensions:" +
       Versions.io_realm

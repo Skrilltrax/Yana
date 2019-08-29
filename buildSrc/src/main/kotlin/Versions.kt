@@ -18,7 +18,7 @@ object Versions {
 
   const val core_ktx: String = "1.2.0-alpha03"
 
-  const val androidx_databinding: String = "3.5.0-rc02" // available: "3.6.0-alpha07"
+  const val androidx_databinding: String = "3.5.0-rc02" // available: "3.6.0-alpha08"
 
   const val fragment_ktx: String = "1.2.0-alpha02"
 
@@ -36,11 +36,15 @@ object Versions {
 
   const val androidx_test_runner: String = "1.3.0-alpha02"
 
-  const val aapt2: String = "3.5.0-rc02-5435860" // available: "3.6.0-alpha07-5720371"
+  const val aapt2: String = "3.5.0-rc02-5435860" // available: "3.6.0-alpha08-5720371"
 
-  const val com_android_tools_build_gradle: String = "3.5.0-rc02" // available: "3.6.0-alpha07"
+  const val com_android_tools_build_gradle: String = "3.5.0-rc02" // available: "3.6.0-alpha08"
 
-  const val lint_gradle: String = "26.5.0-rc02" // available: "26.6.0-alpha07"
+  const val lint_gradle: String = "26.5.0-rc02" // available: "26.6.0-alpha08"
+
+  const val crashlytics: String = "2.10.1"
+
+  const val com_firebaseui: String = "5.0.0"
 
   const val play_services_auth: String = "17.0.0"
 
@@ -48,15 +52,19 @@ object Versions {
 
   const val gson: String = "2.8.5"
 
-  const val firebase_analytics: String = "17.1.0"
+  const val firebase_analytics: String = "17.1.0" // available: "17.2.0"
 
   const val firebase_auth: String = "19.0.0"
 
-  const val google_services: String = "4.2.0"
+  const val firebase_core: String = "17.1.0" // available: "17.2.0"
+
+  const val google_services: String = "4.2.0" // available: "4.3.1"
 
   const val leakcanary_android: String = "2.0-beta-3"
 
   const val de_fayard_buildsrcversions_gradle_plugin: String = "0.4.2"
+
+  const val io_fabric_tools_gradle: String = "1.31.0"
 
   const val io_realm: String = "5.14.0"
 
@@ -73,7 +81,7 @@ object Versions {
    * See issue 19: How to update Gradle itself?
    * https://github.com/jmfayard/buildSrcVersions/issues/19
    */
-  const val gradleLatestVersion: String = "5.6"
+  const val gradleLatestVersion: String = "5.6.1"
 
   const val gradleCurrentVersion: String = "5.6"
 }
