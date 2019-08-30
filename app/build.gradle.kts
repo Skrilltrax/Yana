@@ -64,6 +64,19 @@ dependencies {
     implementation(Libs.firebase_ui_auth)
     implementation(Libs.firebase_ui_storage)
     implementation(Libs.play_services_auth)
+    implementation("com.google.oauth-client:google-oauth-client-jetty:1.23.0")
+    implementation("com.google.api-client:google-api-client:1.23.0") {
+        exclude("org.apache.httpcomponents")
+        exclude(module = "guava-jdk5")
+    }
+    implementation("com.google.apis:google-api-services-drive:v3-rev110-1.23.0") {
+        exclude("org.apache.httpcomponents")
+        exclude(module = "guava-jdk5")
+    }
+    implementation("com.google.api-client:google-api-client-android:1.23.0") {
+        exclude("org.apache.httpcomponents")
+        exclude(module = "guava-jdk5")
+    }
 
     debugImplementation(Libs.leakcanary_android)
 
