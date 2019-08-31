@@ -62,6 +62,11 @@ dependencies {
 
     //google
     implementation(Libs.play_services_auth)
+    implementation("com.google.api-client:google-api-client:1.23.0") {
+        exclude("org.apache.httpcomponents")
+        exclude(module = "guava-jdk5")
+    }
+
     implementation(Libs.google_api_services_drive) {
         exclude("org.apache.httpcomponents")
         exclude(module = "guava-jdk5")

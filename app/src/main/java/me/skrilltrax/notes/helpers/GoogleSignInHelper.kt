@@ -11,6 +11,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.Scope
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential
+import com.google.api.services.drive.Drive
 import com.google.api.services.drive.DriveScopes
 import com.google.firebase.auth.*
 import me.skrilltrax.notes.R
@@ -20,7 +21,6 @@ import java.util.*
 
 object GoogleSignInHelper {
 
-    private lateinit var weakActivity: WeakReference<Activity>
     private lateinit var credential: AuthCredential
 
     fun getSignInClient(context: Context): GoogleSignInClient? {
@@ -33,13 +33,12 @@ object GoogleSignInHelper {
         return GoogleSignIn.getClient(context, gso)
     }
 
-    fun parseIntent(activity: Activity, data: Intent?) {
+    fun parseIntent(context: Context, data: Intent?) {
         val task = GoogleSignIn.getSignedInAccountFromIntent(data)
         task.addOnSuccessListener {
             Log.d("GoogleSignInHelper", "Google Sign In Success")
             try {
-                weakActivity = WeakReference(activity)
-                driveSignIn(it)
+                driveSignIn(context, it)
                 firebaseAuthWithGoogle(it)
             } catch (e: ApiException) {
                 Log.w(SplashActivity.TAG, "Google sign in failed", e)
@@ -49,16 +48,16 @@ object GoogleSignInHelper {
         }
     }
 
-    private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
+    fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
         Log.d("SignInHelper", "firebaseAuthWithGoogle")
         credential = GoogleAuthProvider.getCredential(acct.idToken, null)
         FirebaseHelper.signIn(credential)
     }
 
-    private fun driveSignIn(acct: GoogleSignInAccount) {
+    fun driveSignIn(context: Context, acct: GoogleSignInAccount) {
         Log.d("SignInHelper", "driveSignIn")
         val driveCredential = GoogleAccountCredential.usingOAuth2(
-            weakActivity.get(), Collections.singleton(DriveScopes.DRIVE_FILE)
+            context.applicationContext, Collections.singleton(DriveScopes.DRIVE_FILE)
         )
         Log.d("driveSignIn", acct.displayName + " AAAAA")
         driveCredential.selectedAccount = acct.account

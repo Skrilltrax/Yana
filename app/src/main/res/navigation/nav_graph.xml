@@ -9,5 +9,15 @@
             android:id="@+id/notesListFragment"
             android:name="me.skrilltrax.notes.ui.fragments.NotesListFragment"
             android:label="NotesListFragment"
-            tools:layout="@layout/fragment_notes_list"/>
+            tools:layout="@layout/fragment_notes_list">
+        <action
+                android:id="@+id/action_notesListFragment_to_noteFragment"
+                app:destination="@id/noteFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/noteFragment"
+            android:name="me.skrilltrax.notes.ui.fragments.NoteFragment"
+            android:label="NoteFragment"
+            tools:layout="@layout/fragment_note">
+    </fragment>
 </navigation>
