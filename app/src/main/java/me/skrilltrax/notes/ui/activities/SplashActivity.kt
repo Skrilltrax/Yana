@@ -5,11 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.common.SignInButton
-import me.skrilltrax.notes.GoogleSignInHelper
+import me.skrilltrax.notes.helpers.GoogleSignInHelper
 import me.skrilltrax.notes.R
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
-import org.mortbay.jetty.Main
 
 class SplashActivity: AppCompatActivity() {
 

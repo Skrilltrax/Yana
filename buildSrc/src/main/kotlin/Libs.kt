@@ -8,11 +8,6 @@ import kotlin.String
  */
 object Libs {
   /**
-   * https://developer.android.com/jetpack/androidx
-   */
-  const val appcompat: String = "androidx.appcompat:appcompat:" + Versions.appcompat
-
-  /**
    * http://tools.android.com
    */
   const val constraintlayout: String = "androidx.constraintlayout:constraintlayout:" +
@@ -42,17 +37,6 @@ object Libs {
       Versions.androidx_databinding
 
   /**
-   * https://developer.android.com/jetpack/androidx
-   */
-  const val fragment_ktx: String = "androidx.fragment:fragment-ktx:" + Versions.fragment_ktx
-
-  /**
-   * http://developer.android.com/tools/extras/support-library.html
-   */
-  const val legacy_support_v4: String = "androidx.legacy:legacy-support-v4:" +
-      Versions.legacy_support_v4
-
-  /**
    * https://developer.android.com/topic/libraries/architecture/index.html
    */
   const val lifecycle_extensions: String = "androidx.lifecycle:lifecycle-extensions:" +
@@ -75,16 +59,6 @@ object Libs {
    */
   const val navigation_ui_ktx: String = "androidx.navigation:navigation-ui-ktx:" +
       Versions.androidx_navigation
-
-  /**
-   * https://developer.android.com/jetpack/androidx
-   */
-  const val preference: String = "androidx.preference:preference:" + Versions.preference
-
-  /**
-   * https://developer.android.com/jetpack/androidx
-   */
-  const val recyclerview: String = "androidx.recyclerview:recyclerview:" + Versions.recyclerview
 
   /**
    * https://developer.android.com/testing
@@ -114,29 +88,6 @@ object Libs {
 
   const val crashlytics: String = "com.crashlytics.sdk.android:crashlytics:" + Versions.crashlytics
 
-  /**
-   * https://github.com/firebase/FirebaseUI-Android
-   */
-  const val firebase_ui_auth: String = "com.firebaseui:firebase-ui-auth:" + Versions.com_firebaseui
-
-  /**
-   * https://github.com/firebase/FirebaseUI-Android
-   */
-  const val firebase_ui_database: String = "com.firebaseui:firebase-ui-database:" +
-      Versions.com_firebaseui
-
-  /**
-   * https://github.com/firebase/FirebaseUI-Android
-   */
-  const val firebase_ui_firestore: String = "com.firebaseui:firebase-ui-firestore:" +
-      Versions.com_firebaseui
-
-  /**
-   * https://github.com/firebase/FirebaseUI-Android
-   */
-  const val firebase_ui_storage: String = "com.firebaseui:firebase-ui-storage:" +
-      Versions.com_firebaseui
-
   const val play_services_auth: String = "com.google.android.gms:play-services-auth:" +
       Versions.play_services_auth
 
@@ -144,6 +95,15 @@ object Libs {
    * http://developer.android.com/tools/extras/support-library.html
    */
   const val material: String = "com.google.android.material:material:" + Versions.material
+
+  /**
+   * https://github.com/googleapis/google-api-java-client
+   */
+  const val google_api_client_android: String = "com.google.api-client:google-api-client-android:" +
+      Versions.google_api_client_android
+
+  const val google_api_services_drive: String = "com.google.apis:google-api-services-drive:" +
+      Versions.google_api_services_drive
 
   /**
    * https://github.com/google/gson

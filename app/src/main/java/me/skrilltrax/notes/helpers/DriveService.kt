@@ -1,15 +1,13 @@
-package me.skrilltrax.notes
+package me.skrilltrax.notes.helpers
 
 import android.util.Log
 import com.google.api.client.extensions.android.http.AndroidHttp
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential
-import com.google.api.client.http.FileContent
 import com.google.api.client.json.jackson2.JacksonFactory
 import com.google.api.services.drive.Drive
 import com.google.api.services.drive.model.File
 import com.google.api.services.drive.model.FileList
 import kotlinx.coroutines.*
-import org.jetbrains.anko.custom.async
 import java.util.*
 
 object DriveService {

@@ -1,12 +1,11 @@
 package me.skrilltrax.notes
 
+import android.content.Context
 import android.content.SharedPreferences
-import androidx.preference.PreferenceManager
 
 object PreferenceUtils {
 
-    private val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(MyApplication.instance)
-    private const val PREF_NOTE: String = "PrefNote"
+    private val prefs: SharedPreferences = MyApplication.instance.getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
     private const val THEME: String = "theme"
     private const val FIRST_RUN: String = "first_run"
     private const val USER_NAME: String = "user_name"

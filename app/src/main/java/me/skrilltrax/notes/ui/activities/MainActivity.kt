@@ -27,21 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setListeners() {
         binding.fab.setOnClickListener {
-//            CoroutineScope(Dispatchers.IO).launch {
-//                DriveService.createFile()
-//            }
-            CoroutineScope(Dispatchers.IO).launch {
-                val files = DriveService.getFiles()
-//                val filesNum = DriveService.getFiles()
-                withContext(Dispatchers.Main) {
-                    if (files != null) {
-                        for (i in 0 until files.size) {
-                            Log.d("MainActivity", files[i].name)
-                        }
-                    }
-//                    Log.d("MainActivity", "$filesNum AAA ")
-                }
-            }
+
         }
     }
 

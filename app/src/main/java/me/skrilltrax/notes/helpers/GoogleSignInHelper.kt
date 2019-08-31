@@ -1,4 +1,4 @@
-package me.skrilltrax.notes
+package me.skrilltrax.notes.helpers
 
 import android.app.Activity
 import android.content.Context
@@ -13,6 +13,7 @@ import com.google.android.gms.common.api.Scope
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential
 import com.google.api.services.drive.DriveScopes
 import com.google.firebase.auth.*
+import me.skrilltrax.notes.R
 import me.skrilltrax.notes.ui.activities.SplashActivity
 import java.lang.ref.WeakReference
 import java.util.*

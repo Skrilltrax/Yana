@@ -1,4 +1,4 @@
-package me.skrilltrax.notes
+package me.skrilltrax.notes.helpers
 
 import android.util.Log
 import com.google.firebase.auth.AuthCredential
