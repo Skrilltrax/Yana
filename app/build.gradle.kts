@@ -9,6 +9,7 @@ plugins {
     id(Plugins.safeArgs)
     id(Plugins.fabric)
     id(Plugins.gms)
+    id(Plugins.sqlDelight)
 }
 
 android {
@@ -38,6 +39,15 @@ android {
     dataBinding.isEnabled = AndroidConfig.useDataBinding
 }
 
+sqldelight {
+    database("NotesDatabase") {
+        packageName = "me.skrilltrax.notes"
+        sourceFolders = listOf("db")
+        schemaOutputDirectory = file("build/dbs")
+    }
+    linkSqlite = false
+}
+
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation(Libs.kotlin_stdlib_jdk7)
@@ -48,6 +58,9 @@ dependencies {
     implementation(Libs.gson)
     implementation(Libs.material)
     implementation(Libs.realm_android_kotlin_extensions)
+    //SqlDelight android driver
+    implementation(Libs.android_driver)
+
 
     //architecture
     implementation(Libs.lifecycle_extensions)

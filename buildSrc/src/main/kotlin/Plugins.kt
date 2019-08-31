@@ -7,6 +7,7 @@ object Plugins {
     const val safeArgs = "androidx.navigation.safeargs.kotlin"
     const val fabric = "io.fabric"
     const val gms = "com.google.gms.google-services"
+    const val sqlDelight = "com.squareup.sqldelight"
 
     const val gradlePlugin = "com.android.tools.build:gradle:"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:"

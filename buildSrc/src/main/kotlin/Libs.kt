@@ -100,7 +100,13 @@ object Libs {
    * https://github.com/googleapis/google-api-java-client
    */
   const val google_api_client_android: String = "com.google.api-client:google-api-client-android:" +
-      Versions.google_api_client_android
+      Versions.com_google_api_client
+
+  /**
+   * https://github.com/googleapis/google-api-java-client
+   */
+  const val google_api_client: String = "com.google.api-client:google-api-client:" +
+      Versions.com_google_api_client
 
   const val google_api_services_drive: String = "com.google.apis:google-api-services-drive:" +
       Versions.google_api_services_drive
@@ -124,6 +130,21 @@ object Libs {
    */
   const val leakcanary_android: String = "com.squareup.leakcanary:leakcanary-android:" +
       Versions.leakcanary_android
+
+  /**
+   * https://github.com/square/sqldelight/
+   */
+  const val android_driver: String = "com.squareup.sqldelight:android-driver:" +
+      Versions.com_squareup_sqldelight
+
+  /**
+   * https://github.com/square/sqldelight/
+   */
+  const val gradle_plugin: String = "com.squareup.sqldelight:gradle-plugin:" +
+      Versions.com_squareup_sqldelight
+
+  const val runtime_jvm: String = "com.squareup.sqldelight:runtime-jvm:" +
+      Versions.com_squareup_sqldelight
 
   const val de_fayard_buildsrcversions_gradle_plugin: String =
       "de.fayard.buildSrcVersions:de.fayard.buildSrcVersions.gradle.plugin:" +

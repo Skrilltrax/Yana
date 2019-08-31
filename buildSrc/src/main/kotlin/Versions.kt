@@ -38,7 +38,7 @@ object Versions {
 
   const val material: String = "1.1.0-alpha09"
 
-  const val google_api_client_android: String = "1.23.0" // available: "1.30.2"
+  const val com_google_api_client: String = "1.23.0" // available: "1.30.2"
 
   const val google_api_services_drive: String = "v3-rev110-1.23.0"
        // available: "v3-rev20190620-1.30.1"
@@ -54,6 +54,8 @@ object Versions {
   const val google_services: String = "4.2.0" // available: "4.3.1"
 
   const val leakcanary_android: String = "2.0-beta-3"
+
+  const val com_squareup_sqldelight: String = "1.1.4" // available: "1.2.0"
 
   const val de_fayard_buildsrcversions_gradle_plugin: String = "0.4.2"
 

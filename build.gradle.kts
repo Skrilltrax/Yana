@@ -4,6 +4,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
         maven(url = "https://maven.fabric.io/public")
     }
     dependencies {
@@ -13,6 +14,7 @@ buildscript {
         classpath(Libs.google_services)
         classpath(Libs.navigation_safe_args_gradle_plugin)
         classpath(Libs.io_fabric_tools_gradle)
+        classpath(Libs.gradle_plugin) //SqlDelight gradle plugin
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
