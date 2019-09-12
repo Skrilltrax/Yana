@@ -17,10 +17,8 @@ class SwipeCallback: ItemTouchHelper.SimpleCallback() {
         viewHolder: RecyclerView.ViewHolder,
         target: RecyclerView.ViewHolder
     ): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }*/

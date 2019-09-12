@@ -31,6 +31,7 @@ allprojects {
         jcenter()
     }
 }
+
 buildSrcVersions {
     indent = "  "
     renameLibs = "Libs"
