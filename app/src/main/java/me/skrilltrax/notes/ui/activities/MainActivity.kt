@@ -3,10 +3,15 @@ package me.skrilltrax.notes.ui.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
+import android.view.animation.LinearInterpolator
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -17,8 +22,9 @@ import me.skrilltrax.notes.*
 import me.skrilltrax.notes.databinding.ActivityMainBinding
 import me.skrilltrax.notes.ui.fragments.NotesListFragment
 import me.skrilltrax.notes.ui.viewmodel.MainActivityViewModel
+import org.jetbrains.anko.imageResource
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity(), View.OnClickListener, NavController.OnDestinationChangedListener {
 
     private val viewModel: MainActivityViewModel by lazy { ViewModelProvider(this).get(MainActivityViewModel::class.java) }
     private lateinit var binding: ActivityMainBinding
@@ -32,40 +38,66 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         host = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment? ?: return
         navController = host.navController
-        setObservers()
+        navController.addOnDestinationChangedListener(this)
+        setSupportActionBar(binding.bottomAppbar)
+//        setObservers()
         setListeners()
     }
 
-    private fun setListeners() {
-        binding.fab.setOnClickListener {
-            navController.navigate(R.id.noteFragment)
-        }
-
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            when (destination.id) {
-                R.id.noteFragment -> {
-                    binding.fab.setImageResource(R.drawable.ic_check_white_24dp)
-                }
-            }
-        }
+    fun setListeners() {
+        binding.fab.setOnClickListener(this)
     }
 
-    private fun setObservers() {
+    fun changeToNoteFragment() {
+        binding.fab.animate().apply {
+            duration = 2000
+            alpha(0f)
+            interpolator = LinearInterpolator()
+        }.start()
+        binding.fab.setImageResource(R.drawable.ic_check_white_24dp)
+        binding.fab.animate().apply {
+            duration = 2000
+            alpha(1.0f)
+            interpolator = LinearInterpolator()
+        }.start()
+//        binding.bottomAppbar.replaceMenu()
+    }
 
+    override fun onDestinationChanged(controller: NavController, destination: NavDestination, arguments: Bundle?) {
+        when (destination.id) {
+            R.id.noteFragment -> {
+                changeToNoteFragment()
+            }
+        }
     }
 
     override fun onClick(view: View?) {
         val currentDestination = navController.currentDestination
         if (currentDestination != null) {
             when (currentDestination.id) {
-                R.id.nav_host_fragment -> {
-
+                R.id.notesListFragment -> {
+                    navController.navigate(R.id.noteFragment)
+                    changeToNoteFragment()
                 }
                 R.id.noteFragment -> {
-
                 }
             }
         }
     }
-}
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        when (host.navController.currentDestination?.id) {
+            R.id.noteFragment -> {
+//                binding.bottomAppbar.replaceMenu()
+            }
+            R.id.notesListFragment -> {
+                menuInflater.inflate(R.menu.menu_note, menu)
+            }
+        }
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return super.onOptionsItemSelected(item)
+    }
+}
