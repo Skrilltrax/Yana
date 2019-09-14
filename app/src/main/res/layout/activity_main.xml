@@ -54,6 +54,7 @@
                 app:menu="@menu/menu_note"
                 app:navigationIcon="@drawable/ic_menu_24dp"
                 app:hideOnScroll="true"
+                app:fabAnimationMode="scale"
                 app:fabAlignmentMode="end"
                 app:fabCradleRoundedCornerRadius="50dp"
                 />
@@ -65,7 +66,6 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_add_white_24dp"
                 app:layout_anchor="@id/bottom_appbar"
-                app:elevation="4dp"
                 />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

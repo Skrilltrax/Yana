@@ -1,13 +1,20 @@
 package me.skrilltrax.notes.ui.activities
 
+import android.animation.Animator
+import android.animation.ObjectAnimator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import android.view.animation.AccelerateInterpolator
+import android.view.animation.AnimationUtils
 import android.view.animation.LinearInterpolator
+import androidx.core.animation.doOnEnd
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -15,6 +22,7 @@ import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.api.client.http.javanet.NetHttpTransport
 import com.google.api.services.drive.Drive
 import kotlinx.coroutines.*
@@ -48,18 +56,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, NavController.On
         binding.fab.setOnClickListener(this)
     }
 
-    fun changeToNoteFragment() {
-        binding.fab.animate().apply {
-            duration = 2000
-            alpha(0f)
-            interpolator = LinearInterpolator()
-        }.start()
-        binding.fab.setImageResource(R.drawable.ic_check_white_24dp)
-        binding.fab.animate().apply {
-            duration = 2000
-            alpha(1.0f)
-            interpolator = LinearInterpolator()
-        }.start()
+    private fun changeToNoteFragment() {
+        AnimUtils.animateFAB(binding.fab, R.drawable.ic_check_white_24dp)
 //        binding.bottomAppbar.replaceMenu()
     }
 
