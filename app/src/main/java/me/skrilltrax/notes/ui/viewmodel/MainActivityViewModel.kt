@@ -35,4 +35,8 @@ class MainActivityViewModel: ViewModel() {
     fun getAllNotes() {
         _notesList.postValue(repo.getAllNotes())
     }
+
+    fun saveNote() {
+        repo.addNotes(NoteData(0, "hey", "yo", 1))
+    }
 }

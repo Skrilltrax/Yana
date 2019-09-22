@@ -78,6 +78,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, NavController.On
                     changeToNoteFragment()
                 }
                 R.id.noteFragment -> {
+                    viewModel.saveNote()
                 }
             }
         }

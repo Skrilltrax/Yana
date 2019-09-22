@@ -7,14 +7,14 @@ import java.util.*
 
 open class NoteData (
     @PrimaryKey
-    private var id: String? = null,
+    var id: Int? = null,
     var titleText: String,
     var detailText: String,
-    var noteTypeInt: Int,
-    var startDate: Date,
-    var endDate: Date
+    var noteTypeInt: Int
+//    var startDate: Date,
+//    var endDate: Date
 ) : RealmObject() {
-    constructor(): this(null, "", "", -1, Date(), Date())
+    constructor(): this(null, "", "", -1/*, Date(), Date()*/)
     val noteType: NoteType
         get() = requireNotNull(NoteType.getNoteByType(noteTypeInt))
 }

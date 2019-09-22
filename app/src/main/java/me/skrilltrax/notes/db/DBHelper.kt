@@ -7,4 +7,8 @@ object DBHelper {
     fun getAllNotes(): List<NoteData> {
         return listOf()
     }
+
+    fun saveNote(note: NoteData) {
+
+    }
 }
