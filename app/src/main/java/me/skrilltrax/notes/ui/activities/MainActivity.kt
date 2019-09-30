@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -14,7 +15,7 @@ import me.skrilltrax.notes.ui.viewmodel.MainActivityViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel: MainActivityViewModel by lazy { ViewModelProvider(this).get(MainActivityViewModel::class.java) }
+    private val viewModel: MainActivityViewModel by viewModels()
     private lateinit var binding: ActivityMainBinding
     private lateinit var host: NavHostFragment
     private lateinit var navController: NavController
@@ -35,19 +36,7 @@ class MainActivity : AppCompatActivity() {
     private fun setListeners() {
         binding.fab.setOnClickListener {
             listener?.onFabClick()
-            val currentDestination = navController.currentDestination
-            if (currentDestination != null) {
-                when (currentDestination.id) {
-                    R.id.notesListFragment -> {
-                        navController.navigate(R.id.noteFragment)
-                        router.routeToNoteFragment()
-                    }
-                    R.id.noteFragment -> {
-                        navController.popBackStack()
-                        router.routeToNoteListFragment()
-                    }
-                }
-            }
+            router.handleNavigation(navController)
         }
     }
 
@@ -55,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         this.listener = listener
     }
 
-    fun unbindListener(listener: MainActivityRouter.FabClickListener) {
+    fun unbindListener() {
         this.listener = null
     }
 
@@ -66,5 +55,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        if (navController.currentDestination?.id != R.id.notesListFragment) {
+            router.handleNavigation(navController)
+        } else {
+            super.onBackPressed()
+        }
     }
 }
