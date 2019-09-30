@@ -4,12 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import me.skrilltrax.notes.*
 import me.skrilltrax.notes.databinding.ActivityMainBinding
 import me.skrilltrax.notes.ui.viewmodel.MainActivityViewModel
@@ -21,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var host: NavHostFragment
     private lateinit var navController: NavController
     private lateinit var router: MainActivityRouter
+    private var listener: MainActivityRouter.FabClickListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setListeners() {
         binding.fab.setOnClickListener {
+            listener?.onFabClick()
             val currentDestination = navController.currentDestination
             if (currentDestination != null) {
                 when (currentDestination.id) {
@@ -43,12 +43,20 @@ class MainActivity : AppCompatActivity() {
                         router.routeToNoteFragment()
                     }
                     R.id.noteFragment -> {
-                        navController.navigate(R.id.notesListFragment)
+                        navController.popBackStack()
                         router.routeToNoteListFragment()
                     }
                 }
             }
         }
+    }
+
+    fun bindListener(listener: MainActivityRouter.FabClickListener) {
+        this.listener = listener
+    }
+
+    fun unbindListener(listener: MainActivityRouter.FabClickListener) {
+        this.listener = null
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
