@@ -61,7 +61,12 @@ class MainActivity : AppCompatActivity() {
         if (navController.currentDestination?.id != R.id.notesListFragment) {
             router.handleNavigation(navController)
         } else {
-            super.onBackPressed()
+            //Android Q activity leaks
+            if (isTaskRoot) {
+                finishAfterTransition()
+            } else {
+                super.onBackPressed()
+            }
         }
     }
 }
