@@ -3,14 +3,14 @@ package me.skrilltrax.notes.ui.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import io.realm.Realm
+import me.skrilltrax.notes.MyApplication
 import me.skrilltrax.notes.PreferenceUtils
 import me.skrilltrax.notes.Repository
 import me.skrilltrax.notes.model.NoteData
 
 class MainActivityViewModel: ViewModel() {
 
-    private val repo: Repository = Repository(Realm.getDefaultInstance())
+    private val repo: Repository = Repository(MyApplication.realm)
 
     private var _notesList: MutableLiveData<List<NoteData>> = MutableLiveData()
     private var _userName: MutableLiveData<String> = MutableLiveData("User")
@@ -36,7 +36,7 @@ class MainActivityViewModel: ViewModel() {
         _notesList.postValue(repo.getAllNotes())
     }
 
-    fun saveNote() {
-        repo.addNotes(NoteData(0, "hey", "yo", 1))
+    fun saveNote(note: NoteData) {
+        repo.addNotes(note)
     }
 }

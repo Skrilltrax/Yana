@@ -1,10 +1,9 @@
 package me.skrilltrax.notes
 
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import me.skrilltrax.notes.databinding.ActivityMainBinding
 
-class MainActivityRouter(private val activity: AppCompatActivity, private val binding: ActivityMainBinding) {
+class MainActivityRouter(private val binding: ActivityMainBinding) {
 
     fun handleNavigation(navController: NavController) {
         val currentDestination = navController.currentDestination
@@ -13,6 +12,7 @@ class MainActivityRouter(private val activity: AppCompatActivity, private val bi
                 R.id.notesListFragment -> {
                     navController.navigate(R.id.noteFragment)
                     routeToNoteFragment()
+                    binding.bottomAppbar.performShow()
                 }
                 R.id.noteFragment -> {
                     navController.navigateUp()
@@ -32,6 +32,6 @@ class MainActivityRouter(private val activity: AppCompatActivity, private val bi
     }
 
     interface FabClickListener {
-        fun onFabClick()
+        fun onFabClick(): Boolean
     }
 }

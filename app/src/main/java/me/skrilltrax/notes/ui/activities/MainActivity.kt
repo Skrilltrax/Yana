@@ -6,7 +6,6 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import me.skrilltrax.notes.*
@@ -28,15 +27,21 @@ class MainActivity : AppCompatActivity() {
         binding.viewModel = viewModel
         host = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment? ?: return
         navController = host.navController
-        router = MainActivityRouter(this, binding)
+        router = MainActivityRouter(binding)
         setSupportActionBar(binding.bottomAppbar)
         setListeners()
+        binding.appbar.setLifted(false)
     }
 
     private fun setListeners() {
         binding.fab.setOnClickListener {
-            listener?.onFabClick()
-            router.handleNavigation(navController)
+            if (listener != null) {
+                if (listener?.onFabClick() == true) {
+                    router.handleNavigation(navController)
+                }
+            } else {
+                router.handleNavigation(navController)
+            }
         }
     }
 

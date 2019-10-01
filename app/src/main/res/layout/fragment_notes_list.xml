@@ -14,10 +14,11 @@
             android:layout_width="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:orientation="vertical"
-                tools:listitem="@layout/recycler_layout" />
+                tools:listitem="@layout/item_note" />
     </LinearLayout>
 </layout>

@@ -17,7 +17,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_gravity="top"
-                app:liftOnScroll="true">
+                app:elevation="0dp">
 
             <com.google.android.material.appbar.MaterialToolbar
                     android:layout_width="match_parent"

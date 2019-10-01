@@ -7,7 +7,7 @@ import me.skrilltrax.notes.model.NoteData
 class Repository(private val realm: Realm) {
 
     fun getAllNotes(): List<NoteData> {
-        return realm.where(NoteData::class.java).findAllAsync()
+        return realm.where(NoteData::class.java).findAll()
     }
 
     fun addNotes(note: NoteData) {

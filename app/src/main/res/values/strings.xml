@@ -7,4 +7,7 @@
     <string name="save">Save</string>
     <string name="title_settings">Settings</string>
     <string name="app_icon">App Icon</string>
+    <string name="enter_title_detail">Please enter note title and content</string>
+    <string name="enter_title">Please enter note title</string>
+    <string name="enter_detail">Please enter note content</string>
 </resources>

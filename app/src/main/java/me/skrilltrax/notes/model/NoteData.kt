@@ -5,16 +5,15 @@ import io.realm.annotations.PrimaryKey
 import me.skrilltrax.notes.NoteType
 import java.util.*
 
-open class NoteData (
+open class NoteData @JvmOverloads constructor(
     @PrimaryKey
     var id: Int? = null,
-    var titleText: String,
-    var detailText: String,
-    var noteTypeInt: Int
-//    var startDate: Date,
-//    var endDate: Date
+    var titleText: String = "",
+    var detailText: String = "",
+    var noteTypeInt: Int = -1,
+    var startDate: Date = Date(),
+    var endDate: Date = Date()
 ) : RealmObject() {
-    constructor(): this(null, "", "", -1/*, Date(), Date()*/)
     val noteType: NoteType
         get() = requireNotNull(NoteType.getNoteByType(noteTypeInt))
 }

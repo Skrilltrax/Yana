@@ -1,7 +1,6 @@
 package me.skrilltrax.notes.adapter
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -24,7 +23,7 @@ class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAda
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         list = Utils.getNotes(parent.context)
-        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.recycler_layout,parent,false)
+        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_note,parent,false)
         return MyViewHolder(view)
     }
 
