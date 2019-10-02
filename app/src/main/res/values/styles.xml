@@ -16,6 +16,11 @@
         <item name="actionBarPopupTheme">@style/ThemeOverlay.MaterialComponents.ActionBar</item>
     </style>
 
+    <style name="BottomAppBarStyle" parent="Widget.MaterialComponents.BottomAppBar">
+        <item name="colorOnSurface">@color/color_control_normal</item>
+        <item name="iconTint">@color/color_control_normal</item>
+    </style>
+
     <style name="TitleAppearance" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="android:gravity">center</item>
         <item name="android:layout_gravity">center</item>

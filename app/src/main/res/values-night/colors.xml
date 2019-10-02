@@ -10,4 +10,9 @@
     <color name="primary_text_color">#FFFFFFFF</color>
     <color name="secondary_text_color">#FFFFFFFF</color>
 
+    <!-- Theme variables -->
+    <color name="color_control_normal">@color/white</color>
+    <color name="system_bars_color">@color/primary_color</color>
+    <color name="white">#FFFFFF</color>
+
 </resources>
