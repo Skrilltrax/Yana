@@ -2,9 +2,12 @@ package me.skrilltrax.notes.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.activity.viewModels
+import androidx.core.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -30,7 +33,6 @@ class MainActivity : AppCompatActivity() {
         router = MainActivityRouter(binding)
         setSupportActionBar(binding.bottomAppbar)
         setListeners()
-        binding.appbar.setLifted(false)
     }
 
     private fun setListeners() {

@@ -16,6 +16,7 @@
         <item name="materialAlertDialogTheme">@style/AppTheme.Dialog</item>
         <item name="actionBarPopupTheme">@style/ThemeOverlay.MaterialComponents.ActionBar</item>
         <item name="android:navigationBarColor">@color/primary_color</item>
+        <item name="android:windowLightNavigationBar">@bool/light_status_bar</item>
         <item name="android:windowLightStatusBar">@bool/light_status_bar</item>
     </style>
 </resources>
