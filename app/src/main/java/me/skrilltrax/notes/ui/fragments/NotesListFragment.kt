@@ -37,8 +37,6 @@ class NotesListFragment: Fragment() {
 
     private fun setObservers() {
         mainActivityViewModel.notesList.observe(this, Observer {
-            Log.d("NLF", "gotlist")
-            Log.d("NLF", it.first().titleText)
             binding.recyclerView.adapter = NoteListAdapter(it)
 
         })
