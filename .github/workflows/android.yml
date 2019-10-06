@@ -9,6 +9,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Test printing gpg version
+      run: gpg --version
     - name: Decrypt large secret
       run: ./scripts/decrypt_google_services.sh
       env:
