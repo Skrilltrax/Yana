@@ -1,2 +1,2 @@
 # My-Notes
-A note taking app for android
+A note taking app for android.
