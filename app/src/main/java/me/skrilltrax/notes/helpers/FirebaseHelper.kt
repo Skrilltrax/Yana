@@ -7,7 +7,7 @@ import com.google.firebase.auth.FirebaseUser
 
 object FirebaseHelper {
 
-    private var auth: FirebaseAuth = FirebaseAuth.getInstance()
+    var auth: FirebaseAuth = FirebaseAuth.getInstance()
     private lateinit var user: FirebaseUser
 
     fun signIn(credential: AuthCredential) {

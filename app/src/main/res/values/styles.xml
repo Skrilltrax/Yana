@@ -33,6 +33,11 @@
         <item name="android:windowBackground">?attr/colorBackground</item>
     </style>
 
+    <style name="BottomSheetShapeAppearance" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerRadius">16dp</item>
+    </style>
+
     <style name="BaseBottomSheetDialog" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
         <item name="android:windowIsFloating">false</item>
         <item name="android:navigationBarColor">?attr/colorBackground</item>
@@ -43,6 +48,7 @@
         <item name="android:backgroundDimAmount">0.5</item>
         <item name="android:windowTranslucentStatus">false</item>
         <item name="android:colorBackground">@android:color/transparent</item>
+        <item name="shapeAppearanceLargeComponent">@style/BottomSheetShapeAppearance</item>
     </style>
 
     <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog" />
