@@ -1,6 +1,5 @@
 package me.skrilltrax.notes.helpers
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.util.Log
@@ -14,14 +13,16 @@ import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccoun
 import com.google.api.services.drive.Drive
 import com.google.api.services.drive.DriveScopes
 import com.google.firebase.auth.*
+import me.skrilltrax.notes.AccountAccessException
 import me.skrilltrax.notes.R
 import me.skrilltrax.notes.ui.activities.SplashActivity
-import java.lang.ref.WeakReference
 import java.util.*
 
 object GoogleSignInHelper {
 
     private lateinit var credential: AuthCredential
+    private lateinit var firebaseUser: FirebaseUser
+    private lateinit var driveClient: Drive
 
     fun getSignInClient(context: Context): GoogleSignInClient? {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -38,8 +39,8 @@ object GoogleSignInHelper {
         task.addOnSuccessListener {
             Log.d("GoogleSignInHelper", "Google Sign In Success")
             try {
-                driveSignIn(context, it)
-                firebaseAuthWithGoogle(it)
+                driveClient = driveSignIn(context, it)
+                firebaseUser = firebaseAuthWithGoogle(it)
             } catch (e: ApiException) {
                 Log.w(SplashActivity.TAG, "Google sign in failed", e)
             } catch (e: IllegalAccessException) {
@@ -48,20 +49,23 @@ object GoogleSignInHelper {
         }
     }
 
-    fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
+    @Throws(AccountAccessException::class)
+    fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) : FirebaseUser {
         Log.d("SignInHelper", "firebaseAuthWithGoogle")
         credential = GoogleAuthProvider.getCredential(acct.idToken, null)
-        FirebaseHelper.signIn(credential)
+        firebaseUser = FirebaseHelper.signIn(credential)
+        return firebaseUser
     }
 
-    fun driveSignIn(context: Context, acct: GoogleSignInAccount) {
+    fun driveSignIn(context: Context, acct: GoogleSignInAccount) : Drive {
         Log.d("SignInHelper", "driveSignIn")
         val driveCredential = GoogleAccountCredential.usingOAuth2(
             context.applicationContext, Collections.singleton(DriveScopes.DRIVE_FILE)
         )
         Log.d("driveSignIn", acct.displayName + " AAAAA")
         driveCredential.selectedAccount = acct.account
-        DriveService.init(driveCredential)
+        driveClient = DriveService.init(driveCredential)
+        return driveClient
     }
 }
 

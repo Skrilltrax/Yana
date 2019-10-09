@@ -11,15 +11,17 @@ import kotlinx.coroutines.*
 import java.util.*
 
 object DriveService {
-    lateinit var googleDriveService: Drive
+    private lateinit var googleDriveService: Drive
 
-    fun init(driveCredential: GoogleAccountCredential) {
+    fun init(driveCredential: GoogleAccountCredential): Drive {
         Log.d("DriveService", "init")
         googleDriveService =  Drive.Builder(
             AndroidHttp.newCompatibleTransport(),
             JacksonFactory.getDefaultInstance(),
             driveCredential
         ).setApplicationName("Notes").build()
+
+        return googleDriveService
     }
 
     private fun isDriveInitialized(): Boolean {

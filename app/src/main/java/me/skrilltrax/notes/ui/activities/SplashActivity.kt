@@ -5,42 +5,36 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import me.skrilltrax.notes.AccountAccessException
 import me.skrilltrax.notes.helpers.GoogleSignInHelper
 import me.skrilltrax.notes.R
+import me.skrilltrax.notes.helpers.AccountHelper
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
-class SplashActivity: AppCompatActivity() {
+class SplashActivity: BaseActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        val account = GoogleSignIn.getLastSignedInAccount(this)
-        if (account == null) {
-            val googleSignInClient =
-                requireNotNull(GoogleSignInHelper.getSignInClient(this@SplashActivity))
-            val signInIntent = googleSignInClient.signInIntent
-            startActivityForResult(signInIntent, RC_SIGN_IN)
+        try {
+            AccountHelper.signIn(this)
+        } catch (e: AccountAccessException) {
+            e.message?.let { toast(it) }
         }
-        else {
-            GoogleSignInHelper.firebaseAuthWithGoogle(account)
-            GoogleSignInHelper.driveSignIn(this, account)
-            startActivity<MainActivity>()
-            finish()
-        }
+        startActivity<MainActivity>()
+        finish()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RC_SIGN_IN) {
-            if (resultCode == Activity.RESULT_OK) {
-                GoogleSignInHelper.parseIntent(this, data)
-                startActivity<MainActivity>()
-                finish()
-            } else {
+            if (resultCode != Activity.RESULT_OK) {
                 toast("Auth canceled")
             }
+            startActivity<MainActivity>()
+            finish()
         }
     }
 
