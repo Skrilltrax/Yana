@@ -88,6 +88,17 @@ object Libs {
 
   const val crashlytics: String = "com.crashlytics.sdk.android:crashlytics:" + Versions.crashlytics
 
+  /**
+   * https://github.com/bumptech/glide
+   */
+  const val com_github_bumptech_glide_compiler: String = "com.github.bumptech.glide:compiler:" +
+      Versions.com_github_bumptech_glide
+
+  /**
+   * https://github.com/bumptech/glide
+   */
+  const val glide: String = "com.github.bumptech.glide:glide:" + Versions.com_github_bumptech_glide
+
   const val play_services_auth: String = "com.google.android.gms:play-services-auth:" +
       Versions.play_services_auth
 

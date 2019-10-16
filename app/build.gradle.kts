@@ -61,9 +61,13 @@ dependencies {
     implementation(Libs.gson)
     implementation(Libs.material)
     implementation(Libs.realm_android_kotlin_extensions)
+
+    //Glide
+    implementation(Libs.glide)
+    kapt(Libs.com_github_bumptech_glide_compiler)
+
     //SqlDelight android driver
     implementation(Libs.android_driver)
-
 
     //architecture
     implementation(Libs.lifecycle_extensions)
