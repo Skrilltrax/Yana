@@ -10,4 +10,5 @@
     <string name="enter_title_detail">Please enter note title and content</string>
     <string name="enter_title">Please enter note title</string>
     <string name="enter_detail">Please enter note content</string>
+    <string name="sign_in">Sign in</string>
 </resources>

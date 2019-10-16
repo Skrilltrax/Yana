@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="user"
+                type="com.google.firebase.auth.FirebaseUser" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottom_sheet_head"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:padding="8dp">
+
+        <ImageView
+                android:id="@+id/image_profile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="16dp"
+                imgSrc="@{user.photoUrl}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@{user.displayName}"
+                android:textStyle="bold"
+                android:visibility="@{user.displayName == null ? android.view.View.INVISIBLE : android.view.View.VISIBLE}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/image_profile"
+                app:layout_constraintBottom_toTopOf="@id/tv_email" />
+
+        <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{user.email == null ? android.view.View.INVISIBLE : android.view.View.VISIBLE}"
+                android:text="@{user.email}"
+                app:layout_constraintTop_toBottomOf="@id/tv_name"
+                app:layout_constraintStart_toStartOf="@id/tv_name"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{user == null ? android.view.View.VISIBLE : android.view.View.INVISIBLE}"
+                android:layout_marginStart="16dp"
+                android:text="@string/sign_in"
+                android:textSize="16sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/image_profile"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+        <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="16dp"
+                android:visibility="@{user == null ? android.view.View.INVISIBLE : android.view.View.VISIBLE}"
+                android:src="@drawable/ic_sync_24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import me.skrilltrax.notes.databinding.FragmentBottomSheetBinding
 import me.skrilltrax.notes.helpers.AccountHelper
-import me.skrilltrax.notes.helpers.FirebaseHelper
 
 class BottomMenuFragment : BottomSheetDialogFragment() {
 
@@ -24,7 +23,8 @@ class BottomMenuFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.name.text = AccountHelper.firebaseUser?.displayName
-        binding.email.text = AccountHelper.firebaseUser?.email
+        if (AccountHelper.firebaseUser != null) {
+            binding.user = AccountHelper.firebaseUser
+        }
     }
 }
