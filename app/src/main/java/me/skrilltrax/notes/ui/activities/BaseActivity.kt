@@ -14,7 +14,7 @@ open class BaseActivity : AppCompatActivity() {
             if (resultCode == Activity.RESULT_OK) {
                 GoogleSignInHelper.parseIntent(this, data)
             } else {
-//                toast("Auth canceled")
+                toast("Auth canceled")
             }
         }
     }

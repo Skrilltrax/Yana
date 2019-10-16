@@ -14,17 +14,16 @@ import org.jetbrains.anko.toast
 
 class SplashActivity: BaseActivity() {
 
+    var isSignedIn = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        try {
-            AccountHelper.signIn(this)
-        } catch (e: AccountAccessException) {
-            e.message?.let { toast(it) }
+        isSignedIn = AccountHelper.signIn(this)
+        if (isSignedIn) {
+            startActivity<MainActivity>()
+            finish()
         }
-        startActivity<MainActivity>()
-        finish()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -13,7 +13,7 @@ import java.util.*
 object DriveService {
     private lateinit var googleDriveService: Drive
 
-    fun init(driveCredential: GoogleAccountCredential): Drive {
+    fun init(driveCredential: GoogleAccountCredential) {
         Log.d("DriveService", "init")
         googleDriveService =  Drive.Builder(
             AndroidHttp.newCompatibleTransport(),
@@ -21,7 +21,7 @@ object DriveService {
             driveCredential
         ).setApplicationName("Notes").build()
 
-        return googleDriveService
+        AccountHelper.driveClient = googleDriveService
     }
 
     private fun isDriveInitialized(): Boolean {

@@ -21,8 +21,6 @@ import java.util.*
 object GoogleSignInHelper {
 
     private lateinit var credential: AuthCredential
-    private lateinit var firebaseUser: FirebaseUser
-    private lateinit var driveClient: Drive
 
     fun getSignInClient(context: Context): GoogleSignInClient? {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -39,8 +37,9 @@ object GoogleSignInHelper {
         task.addOnSuccessListener {
             Log.d("GoogleSignInHelper", "Google Sign In Success")
             try {
-                driveClient = driveSignIn(context, it)
-                firebaseUser = firebaseAuthWithGoogle(it)
+                AccountHelper.googleAccount = it
+                driveSignIn(context, it)
+                firebaseAuthWithGoogle(it)
             } catch (e: ApiException) {
                 Log.w(SplashActivity.TAG, "Google sign in failed", e)
             } catch (e: IllegalAccessException) {
@@ -49,23 +48,19 @@ object GoogleSignInHelper {
         }
     }
 
-    @Throws(AccountAccessException::class)
-    fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) : FirebaseUser {
+    fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
         Log.d("SignInHelper", "firebaseAuthWithGoogle")
         credential = GoogleAuthProvider.getCredential(acct.idToken, null)
-        firebaseUser = FirebaseHelper.signIn(credential)
-        return firebaseUser
+        FirebaseHelper.signIn(credential)
     }
 
-    fun driveSignIn(context: Context, acct: GoogleSignInAccount) : Drive {
+    fun driveSignIn(context: Context, acct: GoogleSignInAccount) {
         Log.d("SignInHelper", "driveSignIn")
         val driveCredential = GoogleAccountCredential.usingOAuth2(
-            context.applicationContext, Collections.singleton(DriveScopes.DRIVE_FILE)
-        )
+            context, Collections.singleton(DriveScopes.DRIVE_FILE))
         Log.d("driveSignIn", acct.displayName + " AAAAA")
         driveCredential.selectedAccount = acct.account
-        driveClient = DriveService.init(driveCredential)
-        return driveClient
+        DriveService.init(driveCredential)
     }
 }
 

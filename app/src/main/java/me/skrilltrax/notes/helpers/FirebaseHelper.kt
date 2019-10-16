@@ -9,28 +9,20 @@ import me.skrilltrax.notes.AccountAccessException
 object FirebaseHelper {
 
     private var auth: FirebaseAuth = FirebaseAuth.getInstance()
-    private var user: FirebaseUser? = null
 
-    @Throws(AccountAccessException::class)
-    fun signIn(credential: AuthCredential) : FirebaseUser {
-        Log.d("in SignIN", "here")
-        auth.signInWithCredential(credential).addOnSuccessListener {
-            user = requireNotNull(auth.currentUser)
-            Log.d("FirebaseHelper", user?.displayName + " AAA ")
-        }.addOnCompleteListener {
+    fun signIn(credential: AuthCredential) {
+        auth.signInWithCredential(credential).addOnCompleteListener {
             if (it.isSuccessful) {
-                user = requireNotNull(auth.currentUser)
+                AccountHelper.firebaseUser = requireNotNull(auth.currentUser)
+            } else {
+                Log.d("FirebaseHelper", "ERROR")
             }
-            Log.d("FirebaseHelperComplete", user?.displayName + " AAA ")
+//            Log.d("FirebaseHelperComplete", user?.displayName + " AAA ")
         }
-        if (user != null) {
-            return user as FirebaseUser
-        } else {
-            throw AccountAccessException("Error Initializing Firebase User")
-        }
+//        if (user != null) {
+//            return user as FirebaseUser
+//        } else {
+//            throw AccountAccessException("Error Initializing Firebase User")
+//        }
     }
-
-/*    fun isUserInitialized(): Boolean {
-        return FirebaseHelper::user.isInitialized
-    }*/
 }
