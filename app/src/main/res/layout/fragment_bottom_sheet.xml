@@ -17,14 +17,13 @@
             android:layout_height="wrap_content">
 
         <include
-                android:id="@+id/bottom_sheet_head_container"
+                android:id="@+id/bottom_sheet_header"
                 layout="@layout/item_bottom_sheet_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 bind:user="@{user}"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-
                 />
 
         <com.google.android.material.navigation.NavigationView
@@ -32,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:menu="@menu/menu_note"
-                app:layout_constraintTop_toBottomOf="@id/bottom_sheet_head_container"
+                app:layout_constraintTop_toBottomOf="@id/bottom_sheet_header"
                 app:layout_constraintStart_toStartOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

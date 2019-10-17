@@ -3,11 +3,13 @@ package me.skrilltrax.notes.helpers
 import android.util.Log
 import com.google.api.client.extensions.android.http.AndroidHttp
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential
+import com.google.api.client.http.FileContent
 import com.google.api.client.json.jackson2.JacksonFactory
 import com.google.api.services.drive.Drive
 import com.google.api.services.drive.model.File
 import com.google.api.services.drive.model.FileList
 import kotlinx.coroutines.*
+import me.skrilltrax.notes.MyApplication
 import java.util.*
 
 object DriveService {
@@ -44,12 +46,11 @@ object DriveService {
         return@coroutineScope files.files
     }
 
-    suspend fun createFile() = coroutineScope {
+    suspend fun createFile(name: String) = coroutineScope {
         val fileMetadata = File()
-        fileMetadata.name = "config.json";
+        fileMetadata.name = name;
         fileMetadata.parents = Collections.singletonList("appDataFolder");
-//        val filePath = java.io.File("files/config.json");
-//        val mediaContent = FileContent("application/json", filePath);
+        val db = FileContent("application/txt", java.io.File(MyApplication.realm.path))
         val file = googleDriveService.files().create(fileMetadata).setFields("id").execute()
         Log.d("driveServiceCreateFile", file.id)
     }
