@@ -12,7 +12,7 @@ open class BaseActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == SplashActivity.RC_SIGN_IN) {
             if (resultCode == Activity.RESULT_OK) {
-                GoogleSignInHelper.parseIntent(this, data)
+                GoogleSignInHelper.parseIntent(this.applicationContext, data)
             } else {
                 toast("Auth canceled")
             }

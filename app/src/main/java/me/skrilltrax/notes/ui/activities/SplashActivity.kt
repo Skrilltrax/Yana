@@ -3,10 +3,6 @@ package me.skrilltrax.notes.ui.activities
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import me.skrilltrax.notes.AccountAccessException
-import me.skrilltrax.notes.helpers.GoogleSignInHelper
 import me.skrilltrax.notes.R
 import me.skrilltrax.notes.helpers.AccountHelper
 import org.jetbrains.anko.startActivity
