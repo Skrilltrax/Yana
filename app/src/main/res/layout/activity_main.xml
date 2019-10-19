@@ -51,7 +51,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                app:menu="@menu/menu_note"
                 app:navigationIcon="@drawable/ic_menu_24dp"
                 app:hideOnScroll="true"
                 app:fabAnimationMode="scale"

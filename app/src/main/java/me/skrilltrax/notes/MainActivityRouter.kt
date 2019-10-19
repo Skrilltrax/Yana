@@ -1,5 +1,7 @@
 package me.skrilltrax.notes
 
+import android.view.Menu
+import androidx.appcompat.view.menu.MenuBuilder
 import androidx.navigation.NavController
 import me.skrilltrax.notes.databinding.ActivityMainBinding
 
@@ -11,7 +13,7 @@ class MainActivityRouter(private val binding: ActivityMainBinding) {
     }
     private fun routeToNoteListFragment() {
         AnimUtils.animateFAB(binding.fab, R.drawable.ic_add_white_24dp)
-        binding.bottomAppbar.replaceMenu(R.menu.menu_note)
+        binding.bottomAppbar.replaceMenu(R.menu.menu_empty)
     }
 
     fun handleNavigation(navController: NavController) {
