@@ -63,5 +63,3 @@ object GoogleSignInHelper {
         DriveService.init(driveCredential)
     }
 }
-
-

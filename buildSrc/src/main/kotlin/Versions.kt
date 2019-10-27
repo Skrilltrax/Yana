@@ -12,60 +12,61 @@ import org.gradle.plugin.use.PluginDependencySpec
  * YOU are responsible for updating manually the dependency version.
  */
 object Versions {
-  const val constraintlayout: String = "2.0.0-beta2"
+  const val constraintlayout: String = "2.0.0-beta3"
 
-  const val core_ktx: String = "1.2.0-alpha03" // available: "1.2.0-beta01"
+  const val core_ktx: String = "1.2.0-beta01"
 
-  const val androidx_databinding: String = "3.5.0-rc02" // available: "3.6.0-beta01"
+  const val androidx_databinding: String = "4.0.0-alpha01"
 
-  const val lifecycle_extensions: String = "2.2.0-alpha03" // available: "2.2.0-beta01"
+  const val lifecycle_extensions: String = "2.2.0-rc01"
 
-  const val androidx_navigation: String = "2.2.0-alpha01" // available: "2.2.0-beta01"
+  const val androidx_navigation: String = "2.2.0-rc01"
 
   const val espresso_core: String = "3.3.0-alpha02"
 
   const val androidx_test_runner: String = "1.3.0-alpha02"
 
-  const val aapt2: String = "3.5.0-rc02-5435860" // available: "3.6.0-beta01-5836729"
+  const val aapt2: String = "4.0.0-alpha01-5910961"
 
-  const val com_android_tools_build_gradle: String = "3.5.0-rc02" // available: "3.6.0-beta01"
+  const val com_android_tools_build_gradle: String = "4.0.0-alpha01"
 
-  const val lint_gradle: String = "26.5.0-rc02" // available: "26.6.0-beta01"
+  const val lint_gradle: String = "27.0.0-alpha01"
 
   const val crashlytics: String = "2.10.1"
+
+  const val com_diffplug_gradle_spotless_gradle_plugin: String = "3.25.0"
 
   const val com_github_bumptech_glide: String = "4.10.0"
 
   const val play_services_auth: String = "17.0.0"
 
-  const val material: String = "1.1.0-alpha09" // available: "1.1.0-beta01"
+  const val material: String = "1.2.0-alpha01"
 
-  const val com_google_api_client: String = "1.23.0" // available: "1.30.4"
+  const val com_google_api_client: String = "1.30.5"
 
-  const val google_api_services_drive: String = "v3-rev110-1.23.0"
-       // available: "v3-rev20190926-1.30.3"
+  const val google_api_services_drive: String = "v3-rev20190926-1.30.3"
 
-  const val gson: String = "2.8.5" // available: "2.8.6"
+  const val gson: String = "2.8.6"
 
-  const val firebase_analytics: String = "17.1.0" // available: "17.2.0"
+  const val firebase_analytics: String = "17.2.1"
 
-  const val firebase_auth: String = "19.0.0" // available: "19.1.0"
+  const val firebase_auth: String = "19.1.0"
 
-  const val firebase_core: String = "17.1.0" // available: "17.2.0"
+  const val firebase_core: String = "17.2.1"
 
-  const val google_services: String = "4.2.0" // available: "4.3.2"
+  const val google_services: String = "4.3.2"
 
   const val leakcanary_android: String = "2.0-beta-3"
 
-  const val com_squareup_sqldelight: String = "1.1.4" // available: "1.2.0"
+  const val com_squareup_sqldelight: String = "1.2.0"
 
   const val de_fayard_buildsrcversions_gradle_plugin: String = "0.4.2" // available: "0.7.0"
 
-  const val io_fabric_tools_gradle: String = "1.31.0" // available: "1.31.2"
+  const val io_fabric_tools_gradle: String = "1.31.2"
 
-  const val io_realm: String = "5.14.0" // available: "6.0.0"
+  const val io_realm: String = "6.0.0"
 
-  const val junit: String = "4.13-beta-3"
+  const val junit: String = "4.13-rc-1"
 
   const val anko: String = "0.10.8"
 
@@ -78,7 +79,7 @@ object Versions {
    * See issue 19: How to update Gradle itself?
    * https://github.com/jmfayard/buildSrcVersions/issues/19
    */
-  const val gradleLatestVersion: String = "5.6.2"
+  const val gradleLatestVersion: String = "5.6.3"
 
   const val gradleCurrentVersion: String = "5.6"
 }
