@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import me.skrilltrax.notes.MainActivityRouter
+import me.skrilltrax.notes.utils.PreferenceUtils
+import me.skrilltrax.notes.ui.MainActivityRouter
 import me.skrilltrax.notes.R
-import me.skrilltrax.notes.Utils
 import me.skrilltrax.notes.databinding.FragmentNoteBinding
-import me.skrilltrax.notes.model.NoteData
+import me.skrilltrax.notes.data.model.NoteData
 import me.skrilltrax.notes.ui.activities.MainActivity
 import me.skrilltrax.notes.ui.viewmodel.MainActivityViewModel
 
@@ -44,15 +44,15 @@ class NoteFragment : Fragment(), MainActivityRouter.FabClickListener {
         Log.d("checkNote", "Called")
         return when {
             binding.noteTitle.text.isNullOrEmpty() and binding.noteContent.text.isNullOrEmpty() -> {
-                Utils.showShortAnchoredSnackbar(binding.noteContent, R.id.fab, R.string.enter_title_detail)
+                PreferenceUtils.showShortAnchoredSnackbar(binding.noteContent, R.id.fab, R.string.enter_title_detail)
                 false
             }
             binding.noteTitle.text.isNullOrEmpty() -> {
-                Utils.showShortAnchoredSnackbar(binding.noteContent, R.id.fab, R.string.enter_title)
+                PreferenceUtils.showShortAnchoredSnackbar(binding.noteContent, R.id.fab, R.string.enter_title)
                 false
             }
             binding.noteContent.text.isNullOrEmpty() -> {
-                Utils.showShortAnchoredSnackbar(binding.noteContent, R.id.fab, R.string.enter_detail)
+                PreferenceUtils.showShortAnchoredSnackbar(binding.noteContent, R.id.fab, R.string.enter_detail)
                 false
             }
             else -> true

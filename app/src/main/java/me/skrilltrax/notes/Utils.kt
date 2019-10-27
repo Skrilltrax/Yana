@@ -3,11 +3,9 @@ package me.skrilltrax.notes
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Build
-import android.view.View
-import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import me.skrilltrax.notes.model.NoteData
+import me.skrilltrax.notes.data.model.NoteData
 
 class Utils {
     companion object {
@@ -69,13 +67,6 @@ class Utils {
         fun getUserName(context: Context): String? {
             val sharedPreferences = context.getSharedPreferences(PREFS_FILE_NAME, Context.MODE_PRIVATE)
             return sharedPreferences.getString(USER_NAME, "User")
-        }
-
-        fun showShortAnchoredSnackbar(view: View, anchorViewId: Int, stringRes: Int) {
-            Snackbar.make(view, stringRes, Snackbar.LENGTH_SHORT)
-                .setAnchorView(anchorViewId)
-                .setAnimationMode(Snackbar.ANIMATION_MODE_SLIDE)
-                .show()
         }
     }
 }

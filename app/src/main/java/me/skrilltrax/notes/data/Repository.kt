@@ -1,8 +1,8 @@
-package me.skrilltrax.notes
+package me.skrilltrax.notes.data
 
 import android.util.Log
 import io.realm.Realm
-import me.skrilltrax.notes.model.NoteData
+import me.skrilltrax.notes.data.model.NoteData
 
 class Repository(private val realm: Realm) {
 

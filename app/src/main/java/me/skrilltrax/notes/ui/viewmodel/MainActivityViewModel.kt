@@ -4,13 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import me.skrilltrax.notes.MyApplication
-import me.skrilltrax.notes.PreferenceUtils
-import me.skrilltrax.notes.Repository
-import me.skrilltrax.notes.model.NoteData
+import me.skrilltrax.notes.utils.PreferenceUtils
+import me.skrilltrax.notes.data.Repository
+import me.skrilltrax.notes.data.model.NoteData
 
 class MainActivityViewModel : ViewModel() {
 
-    private val repo: Repository = Repository(MyApplication.realm)
+    private val repo: Repository =
+        Repository(MyApplication.realm)
 
     private var _notesList: MutableLiveData<List<NoteData>> = MutableLiveData()
     private var _userName: MutableLiveData<String> = MutableLiveData("User")

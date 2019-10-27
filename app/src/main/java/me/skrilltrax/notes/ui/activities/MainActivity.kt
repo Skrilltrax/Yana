@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import me.skrilltrax.notes.MainActivityRouter
+import me.skrilltrax.notes.ui.MainActivityRouter
 import me.skrilltrax.notes.R
 import me.skrilltrax.notes.databinding.ActivityMainBinding
 import me.skrilltrax.notes.ui.BottomMenuFragment

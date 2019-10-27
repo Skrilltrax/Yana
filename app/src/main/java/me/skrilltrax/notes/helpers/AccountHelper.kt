@@ -6,7 +6,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.api.services.drive.Drive
 import com.google.firebase.auth.FirebaseUser
-import me.skrilltrax.notes.AccountAccessException
 
 object AccountHelper {
 
@@ -39,13 +38,5 @@ object AccountHelper {
         isSignedIn = true
         GoogleSignInHelper.firebaseAuthWithGoogle(requireNotNull(googleAccount))
         GoogleSignInHelper.driveSignIn(activity.applicationContext, requireNotNull(googleAccount))
-    }
-
-    private fun validateOrThrowException(field: Any?, reason: String): Any {
-        if (field == null) {
-            throw AccountAccessException(reason)
-        } else {
-            return field
-        }
     }
 }

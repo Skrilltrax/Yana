@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import me.skrilltrax.notes.R
 import me.skrilltrax.notes.Utils
-import me.skrilltrax.notes.model.NoteData
+import me.skrilltrax.notes.data.model.NoteData
 import me.skrilltrax.notes.ui.ModalSheet
 
 class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAdapter.MyViewHolder>() {
@@ -73,9 +73,7 @@ class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAda
     }
 
     fun updateDataSet(context: Context) {
-
-        list =
-            Utils.getNotes(context)
+        list = Utils.getNotes(context)
         notifyDataSetChanged()
     }
 

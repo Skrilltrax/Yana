@@ -1,4 +1,4 @@
-package me.skrilltrax.notes
+package me.skrilltrax.notes.utils
 
 enum class NoteType constructor(private val noteId: Int) {
     NOTE(1),

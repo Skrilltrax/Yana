@@ -1,6 +1,6 @@
 package me.skrilltrax.notes.db
 
-import me.skrilltrax.notes.model.NoteData
+import me.skrilltrax.notes.data.model.NoteData
 
 object DBHelper {
 
