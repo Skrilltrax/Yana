@@ -6,6 +6,8 @@ buildscript {
         jcenter()
         mavenCentral()
         maven(url = "https://maven.fabric.io/public")
+        maven(url = "https://dl.bintray.com/kotlin/kotlin-eap")
+
     }
     dependencies {
         classpath(Libs.com_android_tools_build_gradle)
@@ -23,12 +25,14 @@ buildscript {
 plugins {
     id("de.fayard.buildSrcVersions") version Versions.de_fayard_buildsrcversions_gradle_plugin
     id("se.patrikerdes.use-latest-versions") version Versions.se_patrikerdes_use_latest_versions_gradle_plugin
+    id("com.diffplug.gradle.spotless") version "3.25.0"
 }
 
 allprojects {
     repositories {
         google()
         jcenter()
+        maven(url = "https://dl.bintray.com/kotlin/kotlin-eap")
     }
 }
 
@@ -37,6 +41,17 @@ buildSrcVersions {
     renameLibs = "Libs"
     renameVersions = "Versions"
     rejectedVersionKeywords("cr", "m", "preview", "eap")
+}
+
+spotless {
+    kotlin {
+        target("**/*.kt")
+        ktlint().userData(mapOf("indent_size" to "2", "continuation_indent_size" to "2"))
+    }
+    kotlinGradle {
+        target("*.gradle.kts", "additionalScripts/*.gradle.kts")
+        ktlint().userData(mapOf("indent_size" to "2", "continuation_indent_size" to "2"))
+    }
 }
 
 tasks {

@@ -9,7 +9,6 @@ plugins {
     id(Plugins.safeArgs)
     id(Plugins.fabric)
     id(Plugins.gms)
-    id(Plugins.sqlDelight)
 }
 
 android {
@@ -34,21 +33,13 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        val options = this as org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
+        options.jvmTarget = "1.8"
     }
     lintOptions {
             isAbortOnError = false
     }
     dataBinding.isEnabled = AndroidConfig.useDataBinding
-}
-
-sqldelight {
-    database("NotesDatabase") {
-        packageName = "me.skrilltrax.notes"
-        sourceFolders = listOf("db")
-        schemaOutputDirectory = file("build/dbs")
-    }
-    linkSqlite = false
 }
 
 dependencies {
@@ -65,9 +56,7 @@ dependencies {
     //Glide
     implementation(Libs.glide)
     kapt(Libs.com_github_bumptech_glide_compiler)
-
-    //SqlDelight android driver
-    implementation(Libs.android_driver)
+    
 
     //architecture
     implementation(Libs.lifecycle_extensions)
