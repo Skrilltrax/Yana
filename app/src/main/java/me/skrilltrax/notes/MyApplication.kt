@@ -4,7 +4,7 @@ import android.app.Application
 import io.realm.Realm
 import io.realm.RealmConfiguration
 
-class MyApplication: Application() {
+class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
@@ -13,7 +13,6 @@ class MyApplication: Application() {
         Realm.init(this)
         val realmConfig = RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build()
         realm = Realm.getInstance(realmConfig)
-
     }
 
     companion object {

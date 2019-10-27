@@ -3,8 +3,6 @@ package me.skrilltrax.notes.helpers
 import android.util.Log
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import me.skrilltrax.notes.AccountAccessException
 
 object FirebaseHelper {
 

@@ -10,14 +10,14 @@ import me.skrilltrax.notes.AccountAccessException
 
 object AccountHelper {
 
-    var googleAccount : GoogleSignInAccount? = null
-    var firebaseUser : FirebaseUser? = null
-    var driveClient : Drive? = null
+    var googleAccount: GoogleSignInAccount? = null
+    var firebaseUser: FirebaseUser? = null
+    var driveClient: Drive? = null
 
     private const val RC_SIGN_IN = 100
     private var isSignedIn = false
 
-    fun signIn(activity: AppCompatActivity) : Boolean{
+    fun signIn(activity: AppCompatActivity): Boolean {
         googleAccount = GoogleSignIn.getLastSignedInAccount(activity)
         when {
             googleAccount == null -> signInWithoutAccount(activity)
@@ -48,5 +48,4 @@ object AccountHelper {
             return field
         }
     }
-
 }

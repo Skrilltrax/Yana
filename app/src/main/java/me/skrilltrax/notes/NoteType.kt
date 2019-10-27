@@ -7,7 +7,7 @@ enum class NoteType constructor(private val noteId: Int) {
     companion object {
 
         fun getNoteByType(id: Int): NoteType? {
-            val noteArray =  values()
+            val noteArray = values()
             for (i in 0 until noteArray.size) {
                 if (id == noteArray[i].noteId) {
                     return noteArray[i]

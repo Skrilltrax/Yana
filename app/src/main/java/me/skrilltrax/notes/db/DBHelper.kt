@@ -9,6 +9,5 @@ object DBHelper {
     }
 
     fun saveNote(note: NoteData) {
-
     }
 }

@@ -10,13 +10,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.Scope
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential
-import com.google.api.services.drive.Drive
 import com.google.api.services.drive.DriveScopes
-import com.google.firebase.auth.*
-import me.skrilltrax.notes.AccountAccessException
+import com.google.firebase.auth.AuthCredential
+import com.google.firebase.auth.GoogleAuthProvider
+import java.util.Collections
 import me.skrilltrax.notes.R
 import me.skrilltrax.notes.ui.activities.SplashActivity
-import java.util.*
 
 object GoogleSignInHelper {
 

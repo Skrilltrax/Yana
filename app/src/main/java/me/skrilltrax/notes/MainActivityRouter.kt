@@ -1,7 +1,5 @@
 package me.skrilltrax.notes
 
-import android.view.Menu
-import androidx.appcompat.view.menu.MenuBuilder
 import androidx.navigation.NavController
 import me.skrilltrax.notes.databinding.ActivityMainBinding
 

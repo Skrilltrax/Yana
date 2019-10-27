@@ -56,7 +56,7 @@ dependencies {
     //Glide
     implementation(Libs.glide)
     kapt(Libs.com_github_bumptech_glide_compiler)
-    
+
 
     //architecture
     implementation(Libs.lifecycle_extensions)

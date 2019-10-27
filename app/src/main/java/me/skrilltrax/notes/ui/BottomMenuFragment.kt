@@ -11,7 +11,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import me.skrilltrax.notes.databinding.FragmentBottomSheetBinding
-import me.skrilltrax.notes.databinding.ItemBottomSheetHeaderBindingImpl
 import me.skrilltrax.notes.helpers.AccountHelper
 import me.skrilltrax.notes.helpers.DriveService
 
@@ -20,9 +19,9 @@ class BottomMenuFragment : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentBottomSheetBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+      inflater: LayoutInflater,
+      container: ViewGroup?,
+      savedInstanceState: Bundle?
     ): View? {
         binding = FragmentBottomSheetBinding.inflate(inflater, container, false)
         return binding.root

@@ -7,7 +7,6 @@ buildscript {
         mavenCentral()
         maven(url = "https://maven.fabric.io/public")
         maven(url = "https://dl.bintray.com/kotlin/kotlin-eap")
-
     }
     dependencies {
         classpath(Libs.com_android_tools_build_gradle)
@@ -16,7 +15,7 @@ buildscript {
         classpath(Libs.google_services)
         classpath(Libs.navigation_safe_args_gradle_plugin)
         classpath(Libs.io_fabric_tools_gradle)
-        classpath(Libs.gradle_plugin) //SqlDelight gradle plugin
+        classpath(Libs.gradle_plugin) // SqlDelight gradle plugin
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

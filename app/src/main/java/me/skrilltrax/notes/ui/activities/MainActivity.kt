@@ -1,17 +1,15 @@
 package me.skrilltrax.notes.ui.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import androidx.activity.viewModels
-import androidx.core.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import me.skrilltrax.notes.*
+import me.skrilltrax.notes.MainActivityRouter
+import me.skrilltrax.notes.R
 import me.skrilltrax.notes.databinding.ActivityMainBinding
 import me.skrilltrax.notes.ui.BottomMenuFragment
 import me.skrilltrax.notes.ui.viewmodel.MainActivityViewModel
@@ -62,7 +60,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
+        when (item.itemId) {
             android.R.id.home -> {
                 BottomMenuFragment().show(supportFragmentManager, "Menu")
             }
@@ -74,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         if (navController.currentDestination?.id != R.id.notesListFragment) {
             router.handleNavigation(navController)
         } else {
-            //Android Q activity leaks
+            // Android Q activity leaks
             if (isTaskRoot) {
                 finishAfterTransition()
             } else {

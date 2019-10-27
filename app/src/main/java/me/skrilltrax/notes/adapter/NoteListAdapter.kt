@@ -27,7 +27,6 @@ class NoteListAdapter(private val noteList: List<NoteData>) : RecyclerView.Adapt
         return noteList.size
     }
 
-
     inner class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(note: NoteData) {
             Log.d("inViewHolder", "bind")

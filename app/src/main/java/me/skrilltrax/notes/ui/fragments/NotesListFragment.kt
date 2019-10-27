@@ -1,7 +1,6 @@
 package me.skrilltrax.notes.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,18 +11,17 @@ import androidx.lifecycle.Observer
 import me.skrilltrax.notes.R
 import me.skrilltrax.notes.adapter.NoteListAdapter
 import me.skrilltrax.notes.databinding.FragmentNotesListBinding
-import me.skrilltrax.notes.model.NoteData
 import me.skrilltrax.notes.ui.viewmodel.MainActivityViewModel
 
-class NotesListFragment: Fragment() {
+class NotesListFragment : Fragment() {
 
     private val mainActivityViewModel by viewModels<MainActivityViewModel>()
     lateinit var binding: FragmentNotesListBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+      inflater: LayoutInflater,
+      container: ViewGroup?,
+      savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_notes_list, container, false)
         return binding.root
@@ -38,13 +36,12 @@ class NotesListFragment: Fragment() {
     private fun setObservers() {
         mainActivityViewModel.notesList.observe(this, Observer {
             binding.recyclerView.adapter = NoteListAdapter(it)
-
         })
     }
 
     companion object {
 
-        fun newInstance() : NotesListFragment {
+        fun newInstance(): NotesListFragment {
             return NotesListFragment()
         }
     }

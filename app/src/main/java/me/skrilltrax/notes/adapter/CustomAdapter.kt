@@ -18,12 +18,12 @@ class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAda
 
     init {
         Companion.list = list
-        Log.e(TAG,list.toString())
+        Log.e(TAG, list.toString())
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         list = Utils.getNotes(parent.context)
-        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_note,parent,false)
+        val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_note, parent, false)
         return MyViewHolder(view)
     }
 
@@ -32,7 +32,7 @@ class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAda
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        Log.d(TAG,"In OnBindViewHolder")
+        Log.d(TAG, "In OnBindViewHolder")
         holder.titleTextView.text = list?.get(position)?.titleText
         holder.detailTextView.text = list?.get(position)?.detailText
 //        holder.itemView.setOnLongClickListener(this)
@@ -53,7 +53,7 @@ class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAda
             val bundle = Bundle()
             bundle.putString("title", list?.get(itemPosition)?.titleText)
             bundle.putString("detail", list?.get(itemPosition)?.detailText)
-            bundle.putInt("position",itemPosition)
+            bundle.putInt("position", itemPosition)
 //
 //            val intent = Intent(v?.context, NoteActivity::class.java)
 //            intent.putExtras(bundle)
@@ -61,16 +61,15 @@ class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAda
         }
 
         override fun onLongClick(v: View?): Boolean {
-            Log.e("LongClick","WOOORRRKKKK")
+            Log.e("LongClick", "WOOORRRKKKK")
             val modalSheet = ModalSheet()
-            modalSheet.show((v?.context as AppCompatActivity).supportFragmentManager,"MODALBOTTOMSHEET")
+            modalSheet.show((v?.context as AppCompatActivity).supportFragmentManager, "MODALBOTTOMSHEET")
             return true
         }
 
-         companion object {
-             private val TAG: String = MyViewHolder::class.java.simpleName
-         }
-
+        companion object {
+            private val TAG: String = MyViewHolder::class.java.simpleName
+        }
     }
 
     fun updateDataSet(context: Context) {
@@ -84,6 +83,4 @@ class CustomAdapter(list: ArrayList<NoteData>?) : RecyclerView.Adapter<CustomAda
         var list: ArrayList<NoteData>? = null
         private val TAG: String = CustomAdapter::class.java.simpleName
     }
-
 }
-

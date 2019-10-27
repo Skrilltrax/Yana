@@ -9,7 +9,6 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import me.skrilltrax.notes.model.NoteData
 
-
 class Utils {
     companion object {
         private const val PREFS_FILE_NAME: String = "MyPrefs"
@@ -24,11 +23,10 @@ class Utils {
             val spfEditor: SharedPreferences.Editor = spf.edit()
             val gson = Gson()
             val json = gson.toJson(list)
-            spfEditor.putString(PREF_NOTE,json).apply()
-
+            spfEditor.putString(PREF_NOTE, json).apply()
         }
 
-        fun getNotes(context: Context) : ArrayList<NoteData>? {
+        fun getNotes(context: Context): ArrayList<NoteData>? {
 
             val list: ArrayList<NoteData>?
             val spf: SharedPreferences = context.getSharedPreferences(PREFS_FILE_NAME, Context.MODE_PRIVATE)
@@ -40,15 +38,15 @@ class Utils {
             return list
         }
 
-        fun getTransparentColor(context: Context) : String {
-            var color:String = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        fun getTransparentColor(context: Context): String {
+            var color: String = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 Integer.toHexString(context.getColor(R.color.secondary_color))
             } else {
                 //noinspection deprecation
                 Integer.toHexString(context.resources.getColor(R.color.secondary_color))
             }
 
-            color = "#" + color.replaceRange(0,2,"70")
+            color = "#" + color.replaceRange(0, 2, "70")
             return color
         }
 /*
@@ -65,12 +63,12 @@ class Utils {
 
         fun isFirstRun(context: Context): Boolean {
             val sharedPreferences = context.getSharedPreferences(PREFS_FILE_NAME, Context.MODE_PRIVATE)
-            return sharedPreferences.getBoolean(FIRST_RUN,true)
+            return sharedPreferences.getBoolean(FIRST_RUN, true)
         }
 
         fun getUserName(context: Context): String? {
             val sharedPreferences = context.getSharedPreferences(PREFS_FILE_NAME, Context.MODE_PRIVATE)
-            return sharedPreferences.getString(USER_NAME,"User")
+            return sharedPreferences.getString(USER_NAME, "User")
         }
 
         fun showShortAnchoredSnackbar(view: View, anchorViewId: Int, stringRes: Int) {
@@ -79,6 +77,5 @@ class Utils {
                 .setAnimationMode(Snackbar.ANIMATION_MODE_SLIDE)
                 .show()
         }
-
     }
 }

@@ -8,7 +8,7 @@ import me.skrilltrax.notes.PreferenceUtils
 import me.skrilltrax.notes.Repository
 import me.skrilltrax.notes.model.NoteData
 
-class MainActivityViewModel: ViewModel() {
+class MainActivityViewModel : ViewModel() {
 
     private val repo: Repository = Repository(MyApplication.realm)
 

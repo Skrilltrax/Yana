@@ -8,7 +8,7 @@ import me.skrilltrax.notes.helpers.AccountHelper
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
-class SplashActivity: BaseActivity() {
+class SplashActivity : BaseActivity() {
 
     var isSignedIn = false
 
