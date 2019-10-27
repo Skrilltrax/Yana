@@ -22,7 +22,6 @@ object DriveService {
             JacksonFactory.getDefaultInstance(),
             driveCredential
         ).setApplicationName("Notes").build()
-
         AccountHelper.driveClient = googleDriveService
     }
 

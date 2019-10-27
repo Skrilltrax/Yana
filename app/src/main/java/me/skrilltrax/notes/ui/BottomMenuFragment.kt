@@ -31,6 +31,7 @@ class BottomMenuFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         if (AccountHelper.firebaseUser != null) {
             binding.user = AccountHelper.firebaseUser
+            Log.d("BottomMenu", AccountHelper.driveClient?.applicationName ?: "Drive client null")
             binding.bottomSheetHeader.imageSync.setOnClickListener {
                 CoroutineScope(Dispatchers.IO).launch {
                     DriveService.createFile("Realm DB")

@@ -21,6 +21,7 @@
                 app:elevation="0dp">
 
             <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:titleTextAppearance="@style/TitleAppearance">
@@ -51,6 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
+                app:menu="@menu/menu_main"
                 app:navigationIcon="@drawable/ic_menu_24dp"
                 app:hideOnScroll="true"
                 app:fabAnimationMode="scale"

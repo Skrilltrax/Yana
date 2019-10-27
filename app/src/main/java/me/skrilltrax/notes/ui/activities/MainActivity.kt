@@ -12,15 +12,16 @@ import me.skrilltrax.notes.ui.MainActivityRouter
 import me.skrilltrax.notes.R
 import me.skrilltrax.notes.databinding.ActivityMainBinding
 import me.skrilltrax.notes.ui.BottomMenuFragment
+import me.skrilltrax.notes.ui.fragments.NotesListFragment
 import me.skrilltrax.notes.ui.viewmodel.MainActivityViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainActivityViewModel by viewModels()
-    private lateinit var binding: ActivityMainBinding
     private lateinit var host: NavHostFragment
     private lateinit var navController: NavController
     private lateinit var router: MainActivityRouter
+    lateinit var binding: ActivityMainBinding
     private var listener: MainActivityRouter.FabClickListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,11 +55,6 @@ class MainActivity : AppCompatActivity() {
         this.listener = null
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        menuInflater.inflate(R.menu.menu_note, menu)
-        return true
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
@@ -72,6 +68,9 @@ class MainActivity : AppCompatActivity() {
         if (navController.currentDestination?.id != R.id.notesListFragment) {
             router.handleNavigation(navController)
         } else {
+            if ((supportFragmentManager.fragments.first() as NotesListFragment).interceptBackPress) {
+                (supportFragmentManager.fragments.first() as NotesListFragment).handleBackPress()
+            }
             // Android Q activity leaks
             if (isTaskRoot) {
                 finishAfterTransition()

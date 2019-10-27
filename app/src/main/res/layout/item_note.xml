@@ -4,7 +4,7 @@
 	<data>
 		<variable
 				name="note"
-				type="me.skrilltrax.notes.model.NoteData" />
+				type="me.skrilltrax.notes.data.model.NoteData" />
 	</data>
 
 	<LinearLayout
