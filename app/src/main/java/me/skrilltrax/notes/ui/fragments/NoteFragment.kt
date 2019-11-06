@@ -4,28 +4,28 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
-import android.view.MenuItem
 import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import me.skrilltrax.notes.utils.PreferenceUtils
-import me.skrilltrax.notes.ui.MainActivityRouter
 import me.skrilltrax.notes.R
-import me.skrilltrax.notes.databinding.FragmentNoteBinding
 import me.skrilltrax.notes.data.model.NoteData
+import me.skrilltrax.notes.databinding.FragmentNoteBinding
+import me.skrilltrax.notes.ui.MainActivityRouter
 import me.skrilltrax.notes.ui.activities.MainActivity
 import me.skrilltrax.notes.ui.viewmodel.MainActivityViewModel
+import me.skrilltrax.notes.utils.PreferenceUtils
 
 class NoteFragment : Fragment(), MainActivityRouter.FabClickListener {
     private lateinit var binding: FragmentNoteBinding
     private val mainActivityViewModel by viewModels<MainActivityViewModel>()
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+      inflater: LayoutInflater,
+      container: ViewGroup?,
+      savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(true)
         binding = FragmentNoteBinding.inflate(inflater)

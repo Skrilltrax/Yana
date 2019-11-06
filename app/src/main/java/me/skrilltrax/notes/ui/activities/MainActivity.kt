@@ -1,17 +1,16 @@
 package me.skrilltrax.notes.ui.activities
 
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import me.skrilltrax.notes.ui.MainActivityRouter
 import me.skrilltrax.notes.R
 import me.skrilltrax.notes.databinding.ActivityMainBinding
 import me.skrilltrax.notes.ui.BottomMenuFragment
+import me.skrilltrax.notes.ui.MainActivityRouter
 import me.skrilltrax.notes.ui.fragments.NotesListFragment
 import me.skrilltrax.notes.ui.viewmodel.MainActivityViewModel
 

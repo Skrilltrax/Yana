@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import me.skrilltrax.notes.MyApplication
-import me.skrilltrax.notes.utils.PreferenceUtils
 import me.skrilltrax.notes.data.Repository
 import me.skrilltrax.notes.data.model.NoteData
+import me.skrilltrax.notes.utils.PreferenceUtils
 
 class MainActivityViewModel : ViewModel() {
 

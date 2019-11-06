@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import me.skrilltrax.notes.adapter.NoteListAdapter.NoteViewHolder
-import me.skrilltrax.notes.databinding.ItemNoteBinding
 import me.skrilltrax.notes.data.model.NoteData
+import me.skrilltrax.notes.databinding.ItemNoteBinding
 
 class NoteListAdapter(private val noteList: List<NoteData>) : RecyclerView.Adapter<NoteViewHolder>() {
 
