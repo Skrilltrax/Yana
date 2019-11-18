@@ -45,11 +45,11 @@ buildSrcVersions {
 spotless {
     kotlin {
         target("**/*.kt")
-        ktlint().userData(mapOf("indent_size" to "2", "continuation_indent_size" to "2"))
+        ktlint()
     }
     kotlinGradle {
         target("*.gradle.kts", "additionalScripts/*.gradle.kts")
-        ktlint().userData(mapOf("indent_size" to "2", "continuation_indent_size" to "2"))
+        ktlint()
     }
 }
 

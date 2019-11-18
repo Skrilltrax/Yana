@@ -85,6 +85,9 @@ dependencies {
         exclude(module = "guava-jdk5")
     }
 
+    //markdown
+    implementation("io.noties.markwon:core:4.2.0")
+
     debugImplementation(Libs.leakcanary_android)
     testImplementation(Libs.junit)
 
