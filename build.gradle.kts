@@ -54,9 +54,6 @@ spotless {
 }
 
 tasks {
-    /*val clean by registering(Delete::class) {
-        delete(buildDir)
-    }*/
     val updateGradle by registering(Wrapper::class) {
         gradleVersion = Versions.gradleLatestVersion
         distributionType = Wrapper.DistributionType.ALL
