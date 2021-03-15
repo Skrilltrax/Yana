@@ -34,7 +34,6 @@ class NoteFragment : Fragment(), MainActivityRouter.FabClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("NoteFrag", "bind")
         (activity as MainActivity).bindListener(this)
     }
 
